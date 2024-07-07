@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('user_f_o_s', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->integer('user_id');
+            $table->string('email')->unique();
+            $table->string('sertifikasi');
+            $table->string('coverage_area');
+            $table->integer('jumlah_himpunan')->default(0);
+            $table->integer('jumlah_anggota')->default(0);
         });
     }
 
