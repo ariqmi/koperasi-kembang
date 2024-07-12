@@ -73,46 +73,37 @@
               <li class="sidebar-item mb-3">
                 <a
                   class="sidebar-link"
-                  href="{{ route('admin.dashboard.index') }}" aria-expanded="false"
+                  href="{{ route('member.dashboard.index') }}" aria-expanded="false"
                 >
                   <span>
                     <i class="bi bi-grid"></i>
                   </span>
-                  <span class="hide-menu">Dashboard Admin</span>
+                  <span class="hide-menu">Dashboard FO</span>
                 </a>
               </li>
 
-              <li class="sidebar-item mb-3 {{ request()->routeIs('admin.himpunans.index') || request()->routeIs('admin.himpunans.create') || request()->routeIs('admin.himpunans.show') || request()->routeIs('admin.himpunans.edit') ? 'selected' : '' }}">
-                <a class="sidebar-link" href="{{ route('admin.himpunans.index') }}" aria-expanded="false">
+              {{-- <li class="sidebar-item mb-3 {{ request()->routeIs('member.kumpulansaya.index') || request()->routeIs('member.kumpulansaya.create') || request()->routeIs('member.kumpulansaya.show') || request()->routeIs('member.kumpulansaya.edit') ? 'selected' : '' }}">
+                <a class="sidebar-link" href="{{ route('member.kumpulansaya.index') }}" aria-expanded="false">
                     <span>
                         <i class="bi bi-people"></i>
                     </span>
-                    <span class="hide-menu">Pengaturan Himpunan</span>
+                    <span class="hide-menu">Himpunan Saya</span>
                 </a>
-            </li>
-            
-            <li class="sidebar-item mb-3 {{ request()->routeIs('admin.fieldofficers.index') || request()->routeIs('admin.fieldofficers.create') || request()->routeIs('admin.fieldofficers.show') || request()->routeIs('admin.fieldofficers.edit') ? 'selected' : '' }}">
-                <a class="sidebar-link" href="{{ route('admin.fieldofficers.index') }}" aria-expanded="false">
-                    <span>
-                        <i class="bi bi-person-gear"></i>
-                    </span>
-                    <span class="hide-menu">Pengaturan FO</span>
-                </a>
+            </li> --}}
+              
+            <li class="sidebar-item mb-3">
+              <a
+                class="sidebar-link"
+                href="dashboard-anggota-fo.html"
+                aria-expanded="false"
+              >
+                <span>
+                  <i class="bi bi-people"></i>
+                </span>
+                <span class="hide-menu">Himpunan Saya</span>
+              </a>
             </li>
 
-              {{-- <li class="sidebar-item mb-3">
-                <a
-                  class="sidebar-link"
-                  href="{{ request()->is('admin.himpunans.index') || request()->is('admin.himpunans.create') ? 'active' : '' }}"
-                  aria-expanded="false"
-                >
-                  <span>
-                    <i class="bi bi-people"></i>
-                  </span>
-                  <span class="hide-menu">Pengaturan Himpunan</span>
-                </a>
-              </li>--}}
-              
             </ul>
           </nav>
           <!-- End Sidebar navigation -->

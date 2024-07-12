@@ -57,7 +57,7 @@ class HimpunanController extends Controller
             // 'user_fo_id'        => 'required',
             'mitra'             => 'required',
             'email_mitra'       => 'required|email',
-            'no_hp_mitra'       => 'required'
+            'no_hp_mitra'       => 'required|numeric'
             
 ]);
         //create himpunan

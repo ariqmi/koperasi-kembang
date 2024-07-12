@@ -38,20 +38,20 @@
                 @forelse ($userfos as $index => $userfo)
                     <tr>
                         <td>{{ ($userfos->currentPage() - 1) * $userfos->perPage() + $index + 1 }}</td>
-                        <td>{{ $userfo->nama_fo }}</td>
+                        <td>{{ $userfo->nama }}</td>
                         <td>{{ $userfo->jumlah_himpunan }}</td>
                         <td>
-                            <form onsubmit="return confirm('Apakah Anda Yakin Ingin Menghapus ?');" action="{{ route('admin.fieldofficers.destroy', $userfo->id) }}" method="POST">
+                            <form onsubmit="return confirm('Apakah Anda Yakin Ingin Menghapus ?');" action="{{ route('admin.fieldofficers.destroy', $userfo->user_id) }}" method="POST">
                               <a     
                                             type="submit"
-                                            href="{{ route('admin.fieldofficers.show', $userfo->id) }}"
+                                            href="{{ route('admin.fieldofficers.show', $userfo->user_id) }}"
                                             class="button-icon me-1"
                                         >
                                             <i class="bi bi-eye"></i>
                                         </a>
                                         <a
                                             type="submit"
-                                            href="{{ route('admin.fieldofficers.edit', $userfo->id) }}"
+                                            href="{{ route('admin.fieldofficers.edit', $userfo->user_id) }}"
                                             class="button-icon-edit me-1"
                                         >
                                             <i class="bi bi-pencil-square"></i>

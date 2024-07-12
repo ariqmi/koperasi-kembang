@@ -3,7 +3,7 @@
   <!-- Content Start -->
   <div class="container-fluid">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-12">
         <h2 class="title-large-dashboard mb-0">Lihat Himpunan {{ $himpunan->nama_himpunan }}</h2>
   
         <nav aria-label="breadcrumb">

@@ -17,7 +17,18 @@ class UserFO extends Model
      */
     protected $fillable = [
         'user_id',
+        'nama',
+        'nik',
+        'foto_ktp',
         'email',
+        'no_hp',
+        'provinsi',
+        'kokab',
+        'kecamatan',
+        'kelurahan',
+        'rw',
+        'rt',
+        'alamat',
         'sertifikasi',
         'coverage_area',
         'jumlah_himpunan',
@@ -25,7 +36,7 @@ class UserFO extends Model
     ];
 
     public function user() {
-        return $this->belongsTo('App\Models\User');
+        return $this->hasOne(User::class);
     }
 
 }

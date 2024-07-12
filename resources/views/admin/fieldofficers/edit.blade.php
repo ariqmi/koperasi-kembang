@@ -1,18 +1,18 @@
-<x-app-layout-admin title="Edit Himpunan">
+<x-app-layout-admin title="Edit FO">
 
   <!-- Content Start -->
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12">
-        <h2 class="title-large-dashboard mb-0">Edit Himpunan {{ $himpunan->nama_himpunan }}</h2>
+        <h2 class="title-large-dashboard mb-0">Edit FO</h2>
   
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="{{ route('admin.himpunans.index') }}">Pengaturan Himpunan</a>
+              <a href="{{ route('admin.fieldofficers.index') }}">Pengaturan FO</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
-              Edit Himpunan {{ $himpunan->nama_himpunan }}
+              Edit FO
             </li>
           </ol>
         </nav>
@@ -21,7 +21,7 @@
   
     <div class="card p-3 shadow-sm">
   
-      <form id="add_himpunan" action="{{ route('admin.himpunans.update', $himpunan->id) }}" method="POST">
+      <form id="add_fo" action="{{ route('admin.fieldofficers.update', $userfo->user_id) }}" method="POST" enctype="multipart/form-data">
         
           @csrf
           @method('PUT')
@@ -30,20 +30,20 @@
   
           <div class="col-lg-6 mb-4">
             <label
-              for="nama_himpunan"
+              for="nama"
               class="form-label content-medium-dashboard"
-              >Nama Himpunan *</label
+              >Nama Lengkap *</label
             >
             <input
               type="text"
-              class="form-control @error('nama_himpunan') is-invalid @enderror"
-              id="nama_himpunan"
-              name="nama_himpunan"
-              value="{{ old('nama_himpunan', $himpunan->nama_himpunan) }}"
+              class="form-control @error('nama') is-invalid @enderror"
+              id="nama"
+              name="nama"
+              value="{{ old('nama', $userfo->nama) }}"
             />
   
             <!-- error message-->
-            @error('nama_himpunan')
+            @error('nama')
             <div class="alert alert-danger mt-2">
                 {{ $message }}
             </div>
@@ -53,20 +53,20 @@
   
           <div class="col-lg-6 mb-4">
             <label
-              for="kode_himpunan"
+              for="username"
               class="form-label content-medium-dashboard"
-              >Kode Himpunan *</label
+              >Username *</label
             >
             <input
               type="text"
-              class="form-control @error('kode_himpunan') is-invalid @enderror"
-              id="kode_himpunan"
-              name="kode_himpunan"
-              value="{{ old('kode_himpunan', $himpunan->kode_himpunan) }}"
+              class="form-control @error('username') is-invalid @enderror"
+              id="username"
+              name="username"
+              value="{{ old('username', $user->username) }}"
             />
   
             <!-- error message-->
-            @error('kode_himpunan')
+            @error('username')
             <div class="alert alert-danger mt-2">
                 {{ $message }}
             </div>
@@ -81,20 +81,20 @@
   
           <div class="col-lg-6 mb-4">
             <label
-              for="tanggal_aktivasi"
+              for="password"
               class="form-label content-medium-dashboard"
-              >Tanggal Aktivasi *</label
+              >Password *</label
             >
             <input
-              type="date"
-              class="form-control @error('tanggal_aktivasi') is-invalid @enderror"
-              id="tanggal_aktivasi"
-              name="tanggal_aktivasi"
-              value="{{ old('tanggal_aktivasi', $himpunan->tanggal_aktivasi) }}"
+              type="password"
+              class="form-control @error('password') is-invalid @enderror"
+              id="password"
+              name="password"
+              value="{{ old('password') }}"
             />
   
             <!-- error message-->
-            @error('tanggal_aktivasi')
+            @error('password')
             <div class="alert alert-danger mt-2">
                 {{ $message }}
             </div>
@@ -104,21 +104,123 @@
   
           <div class="col-lg-6 mb-4">
             <label
-              for="jumlah_anggota"
+              for="konfirmasi_password"
               class="form-label content-medium-dashboard"
-              >Jumlah Anggota *</label
+              >Konfirmasi Password *</label
             >
             <input
-              type="text"
-              class="form-control @error('jumlah_anggota') is-invalid @enderror"
-              id="jumlah_anggota"
-              name="jumlah_anggota"
-              value="{{ old('jumlah_anggota' , $himpunan->jumlah_anggota) }}"
-              disabled
+              type="password"
+              class="form-control @error('konfirmasi_password') is-invalid @enderror"
+              id="konfirmasi_password"
+              name="password_confirmation"
+              value="{{ old('password_confirmation') }}"
             />
   
             <!-- error message-->
-            @error('jumlah_anggota')
+            @error('password')
+            <div class="alert alert-danger mt-2">
+                {{ $message }}
+            </div>
+           @enderror
+  
+          </div>
+  
+        </div>
+
+        <div class="row">
+  
+          <div class="col-lg-6 mb-4">
+            <label
+              for="nik"
+              class="form-label content-medium-dashboard"
+              >NIK *</label
+            >
+            <input
+              type="text"
+              class="form-control @error('nik') is-invalid @enderror"
+              id="nik"
+              name="nik"
+              value="{{ old('nik', $userfo->nik) }}"
+            />
+  
+            <!-- error message-->
+            @error('nik')
+            <div class="alert alert-danger mt-2">
+                {{ $message }}
+            </div>
+           @enderror
+  
+          </div>
+  
+          <div class="col-lg-6 mb-4">
+            <label
+              for="foto_ktp"
+              class="form-label content-medium-dashboard"
+              >Foto KTP *</label
+            >
+            <input
+            type="file"
+            class="form-control @error('nik') is-invalid @enderror""
+            id="foto_ktp"
+            name="foto_ktp"
+            value="{{ old('foto_ktp', $userfo->foto_ktp) }}"
+          />
+
+          <a href="{{ asset('storage/'. $userfo->foto_ktp)  }}" target="_blank">Lihat Foto KTP</a>
+  
+            <!-- error message-->
+            @error('foto_ktp')
+            <div class="alert alert-danger mt-2">
+                {{ $message }}
+            </div>
+           @enderror
+  
+          </div>
+  
+        </div>
+
+        <div class="row">
+  
+          <div class="col-lg-6 mb-4">
+            <label
+              for="email"
+              class="form-label content-medium-dashboard"
+              >Email *</label
+            >
+            <input
+              type="text"
+              class="form-control @error('email') is-invalid @enderror"
+              id="email"
+              name="email"
+              value="{{ old('email', $userfo->email) }}"
+            />
+  
+            <!-- error message-->
+            @error('email')
+            <div class="alert alert-danger mt-2">
+                {{ $message }}
+            </div>
+           @enderror
+  
+          </div>
+  
+  
+          <div class="col-lg-6 mb-4">
+            <label
+              for="no_hp"
+              class="form-label content-medium-dashboard"
+              >No HP *</label
+            >
+            <input
+              type="text"
+              class="form-control @error('no_hp') is-invalid @enderror"
+              id="no_hp"
+              name="no_hp"
+              value="{{ old('no_hp', $userfo->no_hp) }}"
+            />
+  
+            <!-- error message-->
+            @error('no_hp')
             <div class="alert alert-danger mt-2">
                 {{ $message }}
             </div>
@@ -165,10 +267,10 @@
               class="form-select  @error('kokab') is-invalid @enderror"
               id="kokab"
               name="kokab"
-              value="{{ $himpunan->kokab }}"
+              value="{{ old('kokab', $userfo->kokab) }}"
             >
-              <option value="Kota Bandung" {{ $himpunan->kokab == 'Kota Bandung' ? 'selected' : '' }}>Kota Bandung</option>
-              <option value="Kabupaten Bandung" {{ $himpunan->kokab == 'Kabupaten Bandung' ? 'selected' : '' }}>Kabupaten Bandung</option>
+              <option value="Kota Bandung">Kota Bandung</option>
+              <option value="Kabupaten Bandung">Kabupaten Bandung</option>
             </select>
   
             <!-- error message-->
@@ -195,7 +297,7 @@
               class="form-control @error('kecamatan') is-invalid @enderror"
               id="kecamatan"
               name="kecamatan"
-              value="{{ old('kecamatan' , $himpunan->kecamatan) }}"
+              value="{{ old('kecamatan', $userfo->kecamatan) }}"
             />
   
             <!-- error message-->
@@ -218,7 +320,7 @@
               class="form-control @error('kelurahan') is-invalid @enderror"
               id="kelurahan"
               name="kelurahan"
-              value="{{ old('kelurahan' , $himpunan->kelurahan) }}"
+              value="{{ old('kelurahan', $userfo->kelurahan) }}"
             />
   
             <!-- error message-->
@@ -245,7 +347,7 @@
               class="form-control @error('rw') is-invalid @enderror"
               id="rw"
               name="rw"
-              value="{{ old('rw' , $himpunan->rw) }}"
+              value="{{ old('rw', $userfo->rw) }}"
             />
   
             <!-- error message-->
@@ -268,7 +370,7 @@
               class="form-control @error('rt') is-invalid @enderror"
               id="rt"
               name="rt"
-              value="{{ old('rt', $himpunan->rt) }}"
+              value="{{ old('rt', $userfo->rt) }}"
             />
   
             <!-- error message-->
@@ -294,7 +396,7 @@
               class="form-control @error('alamat') is-invalid @enderror"
               id="alamat"
               name="alamat"
-              value="{{ old('alamat' , $himpunan->alamat) }}"
+              value="{{ old('alamat', $userfo->alamat) }}"
             />
   
             <!-- error message-->
@@ -306,29 +408,76 @@
   
           </div>
         </div>
-  
+
         <div class="row">
+  
           <div class="col-lg-6 mb-4">
             <label
-              for="user_fo_id"
+              for="coverage_area"
               class="form-label content-medium-dashboard"
-              >Nama FO ( Field Officer ) *</label
+              >Coverage Area*</label
             >
-            <select
+            <input
               type="text"
-              class="form-select  @error('user_fo_id') is-invalid @enderror"
-              id="user_fo_id"
-              name="user_fo_id"
-              value="{{ old('user_fo_id' , $himpunan->user_fo_id) }}"
+              class="form-control @error('coverage_area') is-invalid @enderror"
+              id="coverage_area"
+              name="coverage_area"
+              value="{{ old('coverage_area', $userfo->coverage_area) }}"
+            />
+  
+            <!-- error message-->
+            @error('coverage_area')
+            <div class="alert alert-danger mt-2">
+                {{ $message }}
+            </div>
+           @enderror
+  
+          </div>
+  
+          <div class="col-lg-6 mb-4">
+            <label
+              for="sertifikasi"
+              class="form-label content-medium-dashboard"
+              >Sertifikasi *</label
+            >
+            <input
+              type="text"
+              class="form-control @error('sertifikasi') is-invalid @enderror"
+              id="sertifikasi"
+              name="sertifikasi"
+              value="{{ old('sertifikasi', $userfo->sertifikasi) }}"
+            />
+  
+            <!-- error message-->
+            @error('sertifikasi')
+            <div class="alert alert-danger mt-2">
+                {{ $message }}
+            </div>
+           @enderror
+  
+          </div>
+  
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-6 mb-4">
+            <label
+              for="jumlah_himpunan"
+              class="form-label content-medium-dashboard"
+              >Jumlah Himpunan *</label
+            >
+            <input
+              type="text"
+              class="form-control @error('jumlah_himpunan') is-invalid @enderror"
+              id="jumlah_himpunan"
+              name="jumlah_himpunan"
+              {{-- value="{{ $jumlah_himpunan }}" --}}
               disabled
-            >
-              <option selected>Pilih Nama FO</option>
-              <option value="1">Fikri</option>
-              <option value="2">Iqbal Al Fikri Rachman</option>
-            </select>
+            />
   
             <!-- error message-->
-            @error('user_fo_id')
+            @error('jumlah_himpunan')
             <div class="alert alert-danger mt-2">
                 {{ $message }}
             </div>
@@ -338,20 +487,21 @@
   
           <div class="col-lg-6 mb-4">
             <label
-              for="mitra"
+              for="jumlah_anggota"
               class="form-label content-medium-dashboard"
-              >Nama Mitra *</label
+              >Jumlah Anggota *</label
             >
             <input
               type="text"
-              class="form-control @error('mitra') is-invalid @enderror"
-              id="mitra"
-              name="mitra"
-              value="{{ old('mitra' , $himpunan->mitra) }}"
+              class="form-control @error('jumlah_anggota') is-invalid @enderror"
+              id="jumlah_anggota"
+              name="jumlah_anggota"
+              {{-- value="{{ $jumlah_anggota }}" --}}
+              disabled
             />
   
             <!-- error message-->
-            @error('mitra')
+            @error('jumlah_anggota')
             <div class="alert alert-danger mt-2">
                 {{ $message }}
             </div>
@@ -360,59 +510,10 @@
           </div>
   
         </div>
-  
-        <div class="row">
-  
-          <div class="col-lg-6 mb-4">
-            <label
-              for="email_mitra"
-              class="form-label content-medium-dashboard"
-              >Email Mitra *</label
-            >
-            <input
-              type="text"
-              class="form-control @error('email_mitra') is-invalid @enderror"
-              id="email_mitra"
-              name="email_mitra"
-              value="{{ old('email_mitra' , $himpunan->email_mitra) }}"
-            />
-  
-            <!-- error message-->
-            @error('email_mitra')
-            <div class="alert alert-danger mt-2">
-                {{ $message }}
-            </div>
-           @enderror
-  
-          </div>
-  
-          <div class="col-lg-6 mb-4">
-            <label
-              for="no_hp_mitra"
-              class="form-label content-medium-dashboard"
-              >No HP Mitra *</label
-            >
-            <input
-              type="text"
-              class="form-control @error('no_hp_mitra') is-invalid @enderror"
-              id="no_hp_mitra"
-              name="no_hp_mitra"
-              value="{{ old('no_hp_mitra', $himpunan->no_hp_mitra) }}"
-            />
-  
-            <!-- error message-->
-            @error('no_hp_mitra')
-            <div class="alert alert-danger mt-2">
-                {{ $message }}
-            </div>
-           @enderror
-  
-          </div>
-  
-        </div>
+
   
         <div class="col-lg-3 mx-auto">
-          <a onclick="event.preventDefault(); document.getElementById('add_himpunan').submit();" class="button-primary text-center mx-3 mt-2 d-block">Simpan</a>
+          <a onclick="event.preventDefault(); document.getElementById('add_fo').submit();" class="button-primary text-center mx-3 mt-2 d-block">Simpan</a>
         </div>
       </form>
   

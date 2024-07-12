@@ -15,16 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('username')->unique();
             $table->string('password');
-            $table->string('nama');
-            $table->string('foto_ktp');
-            $table->string('no_hp');
-            $table->string('provinsi')->default('Jawa Barat');
-            $table->string('kokab');
-            $table->string('kecamatan');
-            $table->string('kelurahan');
-            $table->integer('rw');
-            $table->integer('rt');
-            $table->text('alamat');
             $table->timestamps();
         });
     }
