@@ -39,4 +39,8 @@ class UserMember extends Model
         'simpanan_kelompok',
         'simpanan_sukarela'
     ];
+
+    public function user() {
+        return $this->hasOne(User::class);
+    }
 }

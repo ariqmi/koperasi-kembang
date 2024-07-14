@@ -50,7 +50,7 @@ class UserFOController extends Controller
             'password' => 'required|confirmed|min:8',
             'nama' => 'required',
             'nik' => 'required|unique:user_f_o_s',
-            'foto_ktp' => 'required',
+            'foto_ktp' => 'required|image|mimes:jpeg,jpg,png|max:2048',
             'email' => 'required|email|unique:user_f_o_s',
             'no_hp' => 'required',
             'kokab' => 'required',
@@ -120,10 +120,10 @@ public function update(Request $request, $id): RedirectResponse
         //validate form
         $request->validate([
             'username' => 'required|unique:users,username,'.$id,
-            // 'password' => 'required|confirmed|min:8',
+            // 'password' => 'confirmed|min:8',
             'nama' => 'required',
             'nik' => 'required|unique:user_f_o_s,nik,'.$userfo->id,
-            // 'foto_ktp' => 'required',
+            'foto_ktp' => 'image|mimes:jpeg,jpg,png|max:2048',
             'email' => 'required|email|unique:user_f_o_s,email,'.$userfo->id,
             'no_hp' => 'required',
             'kokab' => 'required',
@@ -147,11 +147,6 @@ public function update(Request $request, $id): RedirectResponse
             //delete old foto_ktp
             Storage::delete('public/'.$userfo->foto_ktp);
 
-            // //update product with new foto_ktp
-            // $user = User::update([
-            //     'username' => $request->username,
-            //     'password' => Hash::make($request->password),
-            // ]);
             
 
         $user = User::findOrFail($id)->update([

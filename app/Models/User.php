@@ -24,5 +24,8 @@ class User extends Model
         return $this->belongsTo(UserFO::class);
     }
 
+    public function usermember() {
+        return $this->belongsTo(UserMember::class);
+    }
 
 }

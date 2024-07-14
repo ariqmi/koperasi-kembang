@@ -166,9 +166,9 @@
                       >
                         <i class="bi bi-person icon-md"></i>
                         <p class="mb-0">Profil Saya</p>
-                      </a>
+                    </a> 
                       <a
-                        href="login.html"
+                        href="/"
                         class="button-primary-sm text-center mx-3 mt-2 d-block"
                         >Logout</a
                       >
