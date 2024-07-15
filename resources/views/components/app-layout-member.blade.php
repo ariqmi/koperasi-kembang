@@ -78,7 +78,7 @@
                   <span>
                     <i class="bi bi-grid"></i>
                   </span>
-                  <span class="hide-menu">Dashboard FO</span>
+                  <span class="hide-menu">Dashboard Saya</span>
                 </a>
               </li>
 
@@ -98,9 +98,9 @@
                 aria-expanded="false"
               >
                 <span>
-                  <i class="bi bi-people"></i>
+                  <i class="bi bi-journals"></i>
                 </span>
-                <span class="hide-menu">Himpunan Saya</span>
+                <span class="hide-menu">Kumpulan Saya</span>
               </a>
             </li>
 
@@ -152,15 +152,15 @@
                   >
                     <div class="message-body">
                       <a
-                        href="profil-admin.html"
+                        href="{{ route('member.profil.show') }}"
                         class="d-flex align-items-center gap-2 dropdown-item"
                       >
                         <i class="bi bi-person icon-md"></i>
                         <p class="mb-0">Profil Saya</p>
                       </a>
                       <a
-                        href="/"
-                        class="button-primary-sm text-center mx-3 mt-2 d-block"
+                        href="{{ route('login.logout') }}"
+                        class="button-danger-sm text-center mx-3 mt-2 d-block"
                         >Logout</a
                       >
                     </div>

@@ -97,6 +97,20 @@
     line-height: 150%;
 }
 
+.button-danger-sm {
+    padding: 8px 24px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: var(--white);
+    transition: 0.5s;
+    background: #ff5538;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 150%;
+}
+
 .button-icon {
     padding: 6px 12px;
     justify-content: center;
@@ -174,6 +188,7 @@
 
 .button-primary:hover,
 .button-primary-sm:hover,
+.button-danger-sm:hover,
 .button-icon:hover,
 .button-icon-edit:hover,
 .button-icon-delete:hover,

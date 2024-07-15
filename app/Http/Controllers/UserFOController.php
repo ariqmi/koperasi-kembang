@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 //import model user field officer
+use App\Enums\UserRole;
 use App\Models\UserFO; 
 
 use App\Models\User;
@@ -70,6 +71,7 @@ class UserFOController extends Controller
         $user = User::create([
             'username' => $request->username,
             'password' => Hash::make($request->password),
+            'role' => UserRole::Fo
         ]);
 
         UserFO::create([
@@ -120,7 +122,7 @@ public function update(Request $request, $id): RedirectResponse
         //validate form
         $request->validate([
             'username' => 'required|unique:users,username,'.$id,
-            // 'password' => 'confirmed|min:8',
+            'password' => 'nullable|min:8|confirmed',
             'nama' => 'required',
             'nik' => 'required|unique:user_f_o_s,nik,'.$userfo->id,
             'foto_ktp' => 'image|mimes:jpeg,jpg,png|max:2048',
@@ -149,10 +151,17 @@ public function update(Request $request, $id): RedirectResponse
 
             
 
-        $user = User::findOrFail($id)->update([
-            'username' => $request->username,
-            'password' => Hash::make($request->password),
-        ]);
+            if($request->password != null) {
+                $user = User::findOrFail($id)->update([
+                    'username' => $request->username,
+                    'password' => Hash::make($request->password),
+                ]);
+            } else {
+                $user = User::findOrFail($id)->update([
+                    'username' => $request->username,
+                ]);
+            }
+       
 
         UserFO::findOrFail($userfo->id)->update([
             'user_id' => $id,
@@ -176,11 +185,16 @@ public function update(Request $request, $id): RedirectResponse
 
     } else {
 
-        $user = User::findOrFail($id)->update([
-            'username' => $request->username,
-            'password' => Hash::make($request->password),
-        ]);
-
+        if($request->password != null) {
+            $user = User::findOrFail($id)->update([
+                'username' => $request->username,
+                'password' => Hash::make($request->password),
+            ]);
+        } else {
+            $user = User::findOrFail($id)->update([
+                'username' => $request->username,
+            ]);
+        }
         UserFO::findOrFail($userfo->id)->update([
             'user_id' => $id,
             'nama' => $request->nama,

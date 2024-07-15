@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Himpunan; 
 
 //import return type View
+use App\Models\UserMember;
 use Illuminate\View\View;
 
 //import return type redirectResponse
@@ -29,16 +30,19 @@ class HimpunanController extends Controller
         //get all himpunans
         $himpunans = Himpunan::latest()->paginate(10);
 
+        foreach ($himpunans as $himpunan) {
+            $jumlahAnggota = UserMember::where('himpunan_id', $himpunan->id)->count();
+            $himpunan->jumlah_himpunan = $jumlahAnggota;
+        }
+
         //render view with himpunans
         return view('admin.himpunans.index', compact('himpunans'));
     }
 
     public function create(): view 
     {
-        //todo:ganti value 1 saat sudah ada auth
-        $jumlah_anggota = Himpunan::where('id', '1')->value('jumlah_anggota');
          
-        return view('admin.himpunans.create', compact('jumlah_anggota'));
+        return view('admin.himpunans.create');
     }
 
     public function store(Request $request): RedirectResponse
@@ -88,18 +92,20 @@ class HimpunanController extends Controller
     {
         //get himpunan by ID
         $himpunan = Himpunan::findOrFail($id);
+        $jumlahAnggota = UserMember::where('himpunan_id', $id)->count();
 
         //render view with himpunan
-        return view('admin.himpunans.show', compact('himpunan'));
+        return view('admin.himpunans.show', ['jumlahAnggota' => $jumlahAnggota, 'himpunan' => $himpunan]);
     }
 
     public function edit(string $id): View
     {
 	//get himpunan by ID
     $himpunan = Himpunan::findOrFail($id);
+    $jumlahAnggota = UserMember::where('himpunan_id', $id)->count();
 
-    //render view with himpunan
-    return view('admin.himpunans.edit', compact('himpunan'));
+        //render view with himpunan
+        return view('admin.himpunans.edit', ['jumlahAnggota' => $jumlahAnggota, 'himpunan' => $himpunan]);
     }
 
     public function update(Request $request, $id): RedirectResponse

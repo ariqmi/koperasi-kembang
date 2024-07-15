@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 //import return type View
+use App\Models\Himpunan;
+use App\Models\UserFO;
 use Illuminate\View\View;
 
 //import return type redirectResponse
@@ -24,9 +26,10 @@ class AdminDashboardController extends Controller
     public function index() : View
     {
         //get jumlah himpunan dan fo
-
+        $jumlahHimpunan = Himpunan::count();
+        $jumlahFO = UserFO::count();
 
         //render view
-        return view('admin.dashboard.index');
+        return view('admin.dashboard.index', ['jumlahHimpunan' => $jumlahHimpunan, 'jumlahFO' => $jumlahFO]);
     }
 }

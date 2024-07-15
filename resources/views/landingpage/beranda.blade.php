@@ -86,7 +86,14 @@
             <a href="/kontak" class="nav-item nav-link">Kontak</a>
           </div>
           <div class="d-lg-flex">
-            <a class="button-primary ms-4" href="login.html"> Login </a>
+            @if (Auth::check())
+        
+            <a class="button-danger ms-4" href="{{ route('login.logout') }}">Logout</a>
+            @else
+      
+            <a class="button-primary ms-4" href="{{ route('login.index') }}">Login</a>
+            @endif
+            
           </div>
         </div>
       </nav>

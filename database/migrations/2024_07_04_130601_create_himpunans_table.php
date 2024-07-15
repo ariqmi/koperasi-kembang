@@ -27,7 +27,6 @@ return new class extends Migration
             $table->string('mitra');
             $table->string('email_mitra');
             $table->string('no_hp_mitra');
-            $table->integer('jumlah_anggota')->default(0);
             $table->timestamps();
         });
     }

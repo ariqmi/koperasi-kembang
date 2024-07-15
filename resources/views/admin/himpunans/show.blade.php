@@ -85,7 +85,7 @@
               class="form-control"
               id="jumlah_anggota"
               name="jumlah_anggota"
-              value="{{ $himpunan->jumlah_anggota }}"
+              value="{{ $jumlahAnggota }}"
               disabled
             />
           </div>

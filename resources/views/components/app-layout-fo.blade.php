@@ -152,15 +152,15 @@
                   >
                     <div class="message-body">
                       <a
-                        href="profil-admin.html"
+                        href="{{ route('fo.profil.show') }}"
                         class="d-flex align-items-center gap-2 dropdown-item"
                       >
                         <i class="bi bi-person icon-md"></i>
                         <p class="mb-0">Profil Saya</p>
                       </a>
                       <a
-                        href="/"
-                        class="button-primary-sm text-center mx-3 mt-2 d-block"
+                        href="{{ route('login.logout') }}"
+                        class="button-danger-sm text-center mx-3 mt-2 d-block"
                         >Logout</a
                       >
                     </div>

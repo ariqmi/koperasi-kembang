@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 //import return type View
+use App\Enums\UserRole;
 use App\Models\User;
 use App\Models\UserMember;
 use Illuminate\View\View;
@@ -65,7 +66,8 @@ class RegistrasiMemberController extends Controller
          
         $user = User::create([
             'username' => $request->username,
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password),
+            'role' => UserRole::Member
         ]);
 
         UserMember::create([
@@ -92,7 +94,7 @@ class RegistrasiMemberController extends Controller
         
 
         //redirect to index
-        return redirect()->route('member.dashboard.index')->with(['success' => 'Buat Akun Berhasil Silahkan Login!']);
+        return redirect()->route('login.index')->with(['success' => 'Buat Akun Berhasil Silahkan Login!']);
     }
 
 }

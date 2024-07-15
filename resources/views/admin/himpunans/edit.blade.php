@@ -113,7 +113,7 @@
               class="form-control @error('jumlah_anggota') is-invalid @enderror"
               id="jumlah_anggota"
               name="jumlah_anggota"
-              value="{{ old('jumlah_anggota' , $himpunan->jumlah_anggota) }}"
+              value="{{ old('jumlah_anggota' , $jumlahAnggota) }}"
               disabled
             />
   

@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use App\Enums\UserRole;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Model
+class User extends Authenticatable
 {
     use HasFactory;
 
@@ -18,6 +20,7 @@ class User extends Model
     protected $fillable = [
         'username',
         'password',
+        'role'
     ];
 
     public function userfo() {
@@ -26,6 +29,13 @@ class User extends Model
 
     public function usermember() {
         return $this->belongsTo(UserMember::class);
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'role' => UserRole::class,
+        ];
     }
 
 }

@@ -17,7 +17,7 @@
       <div class="card shadow-sm">
         <div class="p-4">
           <h2 class="title-medium-dashboard">Jumlah Himpunan</h2>
-          <h1 class="title-xlarge-dashboard">54</h1>
+          <h1 class="title-xlarge-dashboard">{{ $jumlahHimpunan }}</h1>
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@
       <div class="card shadow-sm">
         <div class="p-4">
           <h2 class="title-medium-dashboard"> Jumlah FO ( Field Officer )</h2>
-          <h1 class="title-xlarge-dashboard">32</h1>
+          <h1 class="title-xlarge-dashboard">{{ $jumlahFO }}</h1>
         </div>
       </div>
     </div>
