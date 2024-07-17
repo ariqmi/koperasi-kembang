@@ -245,10 +245,9 @@
               value="{{ $himpunan->user_fo_id }}"
               disabled
             >
-              <option selected>Pilih Nama FO</option>
-              <option value="1">Fikri</option>
-              <option value="2">Iqbal Al Fikri Rachman</option>
-            </select>
+              <option value="">Pilih Nama FO</option>
+            <option value="{{ $userfos->id }}" selected>{{ $userfos->nama }}</option>
+        </select>
           </div>
   
           <div class="col-lg-6 mb-4">

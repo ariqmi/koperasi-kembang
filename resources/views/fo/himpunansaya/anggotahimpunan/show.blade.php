@@ -1,12 +1,28 @@
-<x-app-layout-fo title="Profil FO">
+<x-app-layout-fo title="Lihat Anggota Himpunan">
 
   <!-- Content Start -->
-  <div class="container-fluid">
-   <div class="row">
-     <div class="col-6">
-       <h2 class="title-large-dashboard mb-3">Profil Saya</h2>
-     </div>
-   </div>
+ <div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 class="title-large-dashboard mb-0">
+        Lihat {{ $usermember->nama }}
+      </h2>
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{{ route('fo.himpunansaya.index') }}">Himpunan Saya</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="{{ route('fo.anggotahimpunan.index', $usermember->himpunan_id) }}">Daftar Anggota Himpunan</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Lihat {{ $usermember->nama }}
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
  
    <div class="card p-3 shadow-sm">
    
@@ -23,7 +39,7 @@
           class="form-control"
           id="nama"
           name="nama"
-          value="{{ $userfo->nama }}"
+          value="{{ $usermember->nama }}"
           disabled
         />
 
@@ -40,7 +56,7 @@
           class="form-control"
           id="username"
           name="username"
-           value="{{ $user->username }}"
+          value="{{ $user->username }}"
           disabled
         />
 
@@ -62,7 +78,7 @@
           class="form-control"
           id="password"
           name="password"
-          value="{{ $userfo->password }}"
+          {{-- value="{{ $user->password }}" --}}
           disabled
         />
 
@@ -79,7 +95,7 @@
           class="form-control"
           id="konfirmasi_password"
           name="password_confirmation"
-          value="{{ $userfo->password_confirmation }}"
+          {{-- value="{{ $user->password_confirmation }}" --}}
           disabled
         />
 
@@ -100,7 +116,7 @@
           class="form-control"
           id="nik"
           name="nik"
-          value="{{ $userfo->nik }}"
+          value="{{ $usermember->nik }}"
           disabled
         />
 
@@ -108,11 +124,18 @@
 
       <div class="col-lg-6 mb-4">
         <label
-          for="foto_ktp"
+          for="no_kk"
           class="form-label content-medium-dashboard"
-          >Foto KTP *</label
+          >Nomor Kartu Keluarga *</label
         >
-        <a class="form-control" href="{{ asset('storage/' . $userfo->foto_ktp) }}" target="_blank">Lihat Foto KTP</a>
+        <input
+          type="text"
+          class="form-control"
+          id="no_kk"
+          name="no_kk"
+          value="{{ $usermember->no_kk }}"
+          disabled
+        />
 
       </div>
 
@@ -122,23 +145,29 @@
 
       <div class="col-lg-6 mb-4">
         <label
-          for="email"
+          for="foto_ktp"
           class="form-label content-medium-dashboard"
-          >Email *</label
+          >Foto KTP *</label
         >
-        <input
-          type="text"
-          class="form-control"
-          id="email"
-          name="email"
-          value="{{ $userfo->email }}"
-          disabled
-        />
+        <a class="form-control" href="{{ asset('storage/' . $usermember->foto_ktp) }}" target="_blank">Lihat Foto KTP</a>
 
       </div>
 
-
       <div class="col-lg-6 mb-4">
+        <label
+          for="foto_kk"
+          class="form-label content-medium-dashboard"
+          >Foto Kartu Keluarga *</label
+        >
+        <a class="form-control" href="{{ asset('storage/' . $usermember->foto_kk) }}" target="_blank">Lihat Foto Kartu Keluarga</a>
+
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-lg-12 mb-4">
         <label
           for="no_hp"
           class="form-label content-medium-dashboard"
@@ -149,10 +178,85 @@
           class="form-control"
           id="no_hp"
           name="no_hp"
-          value="{{ $userfo->no_hp }}"
+          value="{{ $usermember->no_hp }}"
           disabled
         />
 
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-lg-6 mb-4">
+        <label
+          for="pekerjaan"
+          class="form-label content-medium-dashboard"
+          >Pekerjaan *</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="pekerjaan"
+          name="pekerjaan"
+          value="{{ $usermember->pekerjaan }}"
+          disabled
+        />
+
+      </div>
+
+      <div class="col-lg-6 mb-4">
+        <label
+          for="agama"
+          class="form-label content-medium-dashboard"
+          >Agama *</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="agama"
+          name="agama"
+          value="{{ $usermember->agama }}"
+          disabled
+        />
+
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-lg-6 mb-4">
+        <label
+          for="tempat_lahir"
+          class="form-label content-medium-dashboard"
+          >Tempat Lahir *</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="tempat_lahir"
+          name="tempat_lahir"
+          value="{{ $usermember->tempat_lahir }}"
+          disabled
+        />
+
+      </div>
+
+      <div class="col-lg-6 mb-4">
+        <label
+          for="tanggal_lahir"
+          class="form-label content-medium-dashboard"
+          >Tanggal Lahir *</label
+        >
+        <input
+          type="date"
+          class="form-control"
+          id="tanggal_lahir"
+          name="tanggal_lahir"
+          value="{{ $usermember->tanggal_lahir }}"
+          disabled
+        />
       </div>
 
     </div>
@@ -187,7 +291,7 @@
           class="form-select"
           id="kokab"
           name="kokab"
-          value="{{ $userfo->kokab }}"
+          value="{{ $usermember->kokab }}"
           disabled
         >
           <option value="Kota Bandung">Kota Bandung</option>
@@ -211,7 +315,7 @@
           class="form-control"
           id="kecamatan"
           name="kecamatan"
-          value="{{ $userfo->kecamatan }}"
+          value="{{ $usermember->kecamatan }}"
           disabled
         />
 
@@ -228,7 +332,7 @@
           class="form-control"
           id="kelurahan"
           name="kelurahan"
-          value="{{ $userfo->kelurahan}}"
+          value="{{ $usermember->kelurahan}}"
           disabled
         />
 
@@ -249,7 +353,7 @@
           class="form-control"
           id="rw"
           name="rw"
-          value="{{ $userfo->rw }}"
+          value="{{ $usermember->rw }}"
           disabled
         />
 
@@ -266,7 +370,7 @@
           class="form-control"
           id="rt"
           name="rt"
-          value="{{ $userfo->rt }}"
+          value="{{ $usermember->rt }}"
           disabled
         />
 
@@ -286,7 +390,7 @@
           class="form-control"
           id="alamat"
           name="alamat"
-          value="{{ $userfo->alamat}}"
+          value="{{ $usermember->alamat}}"
           disabled
         />
 
@@ -297,71 +401,35 @@
 
       <div class="col-lg-6 mb-4">
         <label
-          for="coverage_area"
+          for="himpunan_id"
           class="form-label content-medium-dashboard"
-          >Coverage Area*</label
+          >Nama Himpunan *</label
         >
-        <input
+        <select
           type="text"
-          class="form-control"
-          id="coverage_area"
-          name="coverage_area"
-          value="{{ $userfo->coverage_area }}"
+          class="form-select"
+          id="himpunan_id"
+          name="himpunan_id"
           disabled
-        />
+        >
+        <option value="">Pilih Nama Himpunan</option>
+            <option value="{{ $himpunans->id }}" selected>{{ $himpunans->nama_himpunan }}</option>
+        </select>
 
       </div>
 
       <div class="col-lg-6 mb-4">
         <label
-          for="sertifikasi"
+          for="user_fo_id"
           class="form-label content-medium-dashboard"
-          >Sertifikasi *</label
+          >Nama FO ( Field Officer ) *</label
         >
         <input
           type="text"
           class="form-control"
-          id="sertifikasi"
-          name="sertifikasi"
-          value="{{ $userfo->sertifikasi }}"
-          disabled
-        />
-
-      </div>
-
-    </div>
-
-    <div class="row">
-
-      <div class="col-lg-6 mb-4">
-        <label
-          for="jumlah_himpunan"
-          class="form-label content-medium-dashboard"
-          >Jumlah Himpunan *</label
-        >
-        <input
-          type="text"
-          class="form-control"
-          id="jumlah_himpunan"
-          name="jumlah_himpunan"
-          value="{{ $jumlahHimpunan }}"
-          disabled
-        />
-
-      </div>
-
-      <div class="col-lg-6 mb-4">
-        <label
-          for="jumlah_anggota"
-          class="form-label content-medium-dashboard"
-          >Jumlah Anggota *</label
-        >
-        <input
-          type="text"
-          class="form-control"
-          id="jumlah_anggota"
-          name="jumlah_anggota"
-          value="{{ $jumlahAnggota }}"
+          id="user_fo_id"
+          name="user_fo_id"
+          value="{{ $userfos->nama}}"
           disabled
         />
 
@@ -370,7 +438,7 @@
     </div>
 
       <div class="col-lg-3 mx-auto">
-        <a href="{{ route('fo.profil.edit') }}" class="button-primary text-center mx-3 mt-2 d-block">Edit</a>
+        <a href="{{ route('fo.anggotahimpunan.edit', $usermember->user_id) }}" class="button-primary text-center mx-3 mt-2 d-block">Edit</a>
       </div>
 
   </div>

@@ -82,26 +82,13 @@
                 </a>
               </li>
 
-              {{-- <li class="sidebar-item mb-3 {{ request()->routeIs('member.kumpulansaya.index') || request()->routeIs('member.kumpulansaya.create') || request()->routeIs('member.kumpulansaya.show') || request()->routeIs('member.kumpulansaya.edit') ? 'selected' : '' }}">
+              <li class="sidebar-item mb-3 {{ request()->routeIs('member.kumpulansaya.index') || request()->routeIs('member.kumpulansaya.show') ? 'selected' : '' }}">
                 <a class="sidebar-link" href="{{ route('member.kumpulansaya.index') }}" aria-expanded="false">
                     <span>
-                        <i class="bi bi-people"></i>
+                        <i class="bi bi-journals"></i>
                     </span>
-                    <span class="hide-menu">Himpunan Saya</span>
+                    <span class="hide-menu">Kumpulan Saya</span>
                 </a>
-            </li> --}}
-              
-            <li class="sidebar-item mb-3">
-              <a
-                class="sidebar-link"
-                href="dashboard-anggota-fo.html"
-                aria-expanded="false"
-              >
-                <span>
-                  <i class="bi bi-journals"></i>
-                </span>
-                <span class="hide-menu">Kumpulan Saya</span>
-              </a>
             </li>
 
             </ul>
@@ -143,7 +130,11 @@
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    <h5 class="content-large-dashboard mx-3">Hi, John Doe</h5>
+                  @if(Auth::check())
+                    
+                  <h5 class="content-large-dashboard mx-3">Hi, {{ Auth::user()->username }}</h5>
+            
+                  @endif
                     <i class="bi bi-chevron-down icon-sm mb-1"></i>
                   </a>
                   <div

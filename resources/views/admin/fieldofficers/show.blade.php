@@ -355,7 +355,7 @@
             class="form-control"
             id="jumlah_himpunan"
             name="jumlah_himpunan"
-            {{-- value="{{ $jumlah_himpunan }}" --}}
+            value="{{ $jumlahHimpunan }}"
             disabled
           />
 
@@ -372,7 +372,7 @@
             class="form-control"
             id="jumlah_anggota"
             name="jumlah_anggota"
-            {{-- value="{{ $jumlah_anggota }}" --}}
+            value="{{ $jumlahAnggota }}"
             disabled
           />
 

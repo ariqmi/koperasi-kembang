@@ -396,9 +396,8 @@
           name="himpunan_id"
           disabled
         >
-          <option selected>Pilih Nama Himpunan</option>
-          <option value="1">Kembang Sari</option>
-          <option value="2">Kembang Mawar</option>
+        <option value="">Pilih Nama Himpunan</option>
+            <option value="{{ $himpunans->id }}" selected>{{ $himpunans->nama_himpunan }}</option>
         </select>
 
       </div>
@@ -409,17 +408,14 @@
           class="form-label content-medium-dashboard"
           >Nama FO ( Field Officer ) *</label
         >
-        <select
+        <input
           type="text"
-          class="form-select"
+          class="form-control"
           id="user_fo_id"
           name="user_fo_id"
+          value="{{ $userfos->nama}}"
           disabled
-        >
-          <option selected>Pilih Nama FO</option>
-          <option value="1">Fikri</option>
-          <option value="2">Iqbal Al Fikri Rachman</option>
-        </select>
+        />
 
       </div>
 

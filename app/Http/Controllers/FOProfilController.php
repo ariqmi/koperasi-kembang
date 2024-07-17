@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Himpunan;
 use App\Models\User;
 use App\Models\UserFO;
 
 //import return type View
+use App\Models\UserMember;
 use Illuminate\View\View;
 
 //import return type redirectResponse
@@ -30,7 +32,11 @@ class FOProfilController extends Controller
         $user = User::findOrFail($userId);
         $userfo = UserFO::where('user_id', $userId)->firstOrFail();
 
-        return view('fo.profil.show', compact('user', 'userfo'));
+        $himpunan = Himpunan::where('user_fo_id', $userId)->firstOrFail();
+        $jumlahHimpunan = Himpunan::where('user_fo_id', $userId)->count();
+        $jumlahAnggota= UserMember::where('himpunan_id', $himpunan->id)->count();
+
+        return view('fo.profil.show', ['jumlahHimpunan' => $jumlahHimpunan, 'userfo' => $userfo, 'user' => $user, 'jumlahAnggota' => $jumlahAnggota]);
     }
 
     public function edit(): View
@@ -39,8 +45,12 @@ class FOProfilController extends Controller
             $user = User::findOrFail($userId);
             $userfo = UserFO::where('user_id', $userId)->firstOrFail();
 
+            $himpunan = Himpunan::where('user_fo_id', $userId)->firstOrFail();
+            $jumlahHimpunan = Himpunan::where('user_fo_id', $userId)->count();
+            $jumlahAnggota= UserMember::where('himpunan_id', $himpunan->id)->count();
+
     
-            return view('fo.profil.edit', compact('user', 'userfo'));
+            return view('fo.profil.edit', ['jumlahHimpunan' => $jumlahHimpunan, 'userfo' => $userfo, 'user' => $user, 'jumlahAnggota' => $jumlahAnggota]);
     }
         
     public function update(Request $request)
@@ -108,8 +118,6 @@ class FOProfilController extends Controller
             'sertifikasi' => $request->sertifikasi,
             'coverage_area' => $request->coverage_area,
             // todo: setelah ada auth ganti value
-            'jumlah_himpunan' => 0,
-            'jumlah_anggota' => 0,
         ]);
 
     } else {
@@ -139,8 +147,6 @@ class FOProfilController extends Controller
             'sertifikasi' => $request->sertifikasi,
             'coverage_area' => $request->coverage_area,
             // todo: setelah ada auth ganti value
-            'jumlah_himpunan' => 0,
-            'jumlah_anggota' => 0,
         ]);
     }
 

@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 //import model user field officer
 use App\Enums\UserRole;
+use App\Models\Himpunan;
 use App\Models\UserFO; 
 
 use App\Models\User;
 
 //import return type View
+use App\Models\UserMember;
 use Illuminate\View\View;
 
 //import return type redirectResponse
@@ -34,6 +36,12 @@ class UserFOController extends Controller
     {
         //get all user and user fo
         $userfos = UserFO::latest()->paginate(10);
+
+        // todo: masih blm muncul valuenya
+        foreach ($userfos as $userfo) {
+            $jumlahHimpunan = Himpunan::where('user_fo_id', $userfo->user_id)->count();
+            $userfo->jumlah_himpunan = $jumlahHimpunan;
+        }
 
         //render view with fo
         return view('admin.fieldofficers.index', compact('userfos'));
@@ -90,8 +98,6 @@ class UserFOController extends Controller
             'sertifikasi' => $request->sertifikasi,
             'coverage_area' => $request->coverage_area,
             // todo: setelah ada auth ganti value
-            'jumlah_himpunan' => 0,
-            'jumlah_anggota' => 0,
         ]);
 
         //redirect to index
@@ -103,8 +109,12 @@ class UserFOController extends Controller
     $userfo = UserFO::where('user_id', $id)->firstOrFail();
     $user = User::where('id', $id)->firstOrFail();
 
+    $himpunan = Himpunan::where('user_fo_id', $id)->firstOrFail();
+    $jumlahHimpunan = Himpunan::where('user_fo_id', $id)->count();
+    $jumlahAnggota= UserMember::where('himpunan_id', $himpunan->id)->count();
+
    
-    return view('admin.fieldofficers.show', compact('user', 'userfo'));
+    return view('admin.fieldofficers.show', ['jumlahHimpunan' => $jumlahHimpunan, 'userfo' => $userfo, 'user' => $user, 'jumlahAnggota' => $jumlahAnggota]);
 }
 
     public function edit(string $id): View
@@ -112,8 +122,12 @@ class UserFOController extends Controller
     $userfo = UserFO::where('user_id', $id)->firstOrFail();
     $user = User::where('id', $id)->firstOrFail();
 
+    $himpunan = Himpunan::where('user_fo_id', $id)->firstOrFail();
+    $jumlahHimpunan = Himpunan::where('user_fo_id', $id)->count();
+    $jumlahAnggota= UserMember::where('himpunan_id', $himpunan->id)->count();
+
     //redirect to index
-    return view('admin.fieldofficers.edit', compact('user', 'userfo'));
+    return view('admin.fieldofficers.edit', ['jumlahHimpunan' => $jumlahHimpunan, 'userfo' => $userfo, 'user' => $user, 'jumlahAnggota' => $jumlahAnggota]);
 }
 
 public function update(Request $request, $id): RedirectResponse
@@ -179,8 +193,6 @@ public function update(Request $request, $id): RedirectResponse
             'sertifikasi' => $request->sertifikasi,
             'coverage_area' => $request->coverage_area,
             // todo: setelah ada auth ganti value
-            'jumlah_himpunan' => 0,
-            'jumlah_anggota' => 0,
         ]);
 
     } else {
@@ -210,8 +222,6 @@ public function update(Request $request, $id): RedirectResponse
             'sertifikasi' => $request->sertifikasi,
             'coverage_area' => $request->coverage_area,
             // todo: setelah ada auth ganti value
-            'jumlah_himpunan' => 0,
-            'jumlah_anggota' => 0,
         ]);
     }
 

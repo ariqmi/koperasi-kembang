@@ -319,11 +319,11 @@
             id="user_fo_id"
             name="user_fo_id"
             value="{{ old('user_fo_id') }}"
-            disabled
           >
-            <option selected>Pilih Nama FO</option>
-            <option value="1">Fikri</option>
-            <option value="2">Iqbal Al Fikri Rachman</option>
+          <option value="">Pilih Nama Field Officer</option>
+          @foreach($userfos as $userfo)
+              <option value="{{ $userfo->id }}">{{ $userfo->nama }}</option>
+          @endforeach
           </select>
 
           <!-- error message-->
@@ -420,5 +420,6 @@
 </div>
 </div>
 <!-- Content End -->
+
 
 </x-app-layout-admin>

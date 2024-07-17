@@ -81,20 +81,16 @@
                   <span class="hide-menu">Dashboard FO</span>
                 </a>
               </li>
-
-              {{-- <li class="sidebar-item mb-3 {{ request()->routeIs('fo.himpunansaya.index') || request()->routeIs('fo.himpunansaya.create') || request()->routeIs('fo.himpunansaya.show') || request()->routeIs('fo.himpunansaya.edit') ? 'selected' : '' }}">
-                <a class="sidebar-link" href="{{ route('fo.himpunansaya.index') }}" aria-expanded="false">
-                    <span>
-                        <i class="bi bi-people"></i>
-                    </span>
-                    <span class="hide-menu">Himpunan Saya</span>
-                </a>
-            </li> --}}
               
-            <li class="sidebar-item mb-3">
+            <li class="sidebar-item mb-3 {{ request()->routeIs('fo.himpunansaya.index') || request()->routeIs('fo.himpunansaya.show') 
+            || request()->routeIs('fo.anggotahimpunan.index') || request()->routeIs('fo.anggotahimpunan.show') 
+            || request()->routeIs('fo.anggotahimpunan.edit')  || request()->routeIs('fo.anggotahimpunan.dashboard') 
+            || request()->routeIs('fo.kelolakumpulan.index')  || request()->routeIs('fo.kelolakumpulan.create')
+            || request()->routeIs('fo.kelolakumpulan.edit')   || request()->routeIs('fo.kumpulananggota.create') 
+            || request()->routeIs('fo.kumpulananggota.edit') ? 'selected' : '' }}">
               <a
                 class="sidebar-link"
-                href="himpunan-fo.html"
+                href="{{ route('fo.himpunansaya.index') }}"
                 aria-expanded="false"
               >
                 <span>
@@ -143,7 +139,11 @@
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    <h5 class="content-large-dashboard mx-3">Hi, John Doe</h5>
+                    @if(Auth::check())
+                    
+                    <h5 class="content-large-dashboard mx-3">Hi, {{ Auth::user()->username }}</h5>
+              
+                    @endif
                     <i class="bi bi-chevron-down icon-sm mb-1"></i>
                   </a>
                   <div

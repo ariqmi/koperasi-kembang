@@ -1,18 +1,18 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
+use App\Models\Himpunan;
+use App\Models\User;
+use App\Models\UserFO;
+
 //import return type View
+use App\Models\UserMember;
 use Illuminate\View\View;
 
-//import return type redirectResponse
-use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 
-//import Http Request
-use Illuminate\Http\Request;
-
-//import Facades Storage
-use Illuminate\Support\Facades\Storage;
 
 class FODashboardController extends Controller
 {
@@ -23,10 +23,16 @@ class FODashboardController extends Controller
      */
     public function index() : View
     {
-        //get jumlah himpunan dan anggota
+        $userId = Auth::id();
+        $user = User::findOrFail($userId);
+        $userfo = UserFO::where('user_id', $userId)->firstOrFail();
+
+        $himpunan = Himpunan::where('user_fo_id', $userId)->firstOrFail();
+        $jumlahHimpunan = Himpunan::where('user_fo_id', $userId)->count();
+        $jumlahAnggota= UserMember::where('himpunan_id', $himpunan->id)->count();
 
 
         //render view
-        return view('fo.dashboard.index');
+        return view('fo.dashboard.index', ['jumlahHimpunan' => $jumlahHimpunan, 'userfo' => $userfo, 'user' => $user, 'jumlahAnggota' => $jumlahAnggota]);
     }
 }

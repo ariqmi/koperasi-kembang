@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 //import return type View
 use App\Enums\UserRole;
+use App\Models\Himpunan;
 use App\Models\User;
+use App\Models\UserFO;
 use App\Models\UserMember;
 use Illuminate\View\View;
 
@@ -28,7 +30,9 @@ class RegistrasiMemberController extends Controller
      */
     public function create(): View
     {
-        return view('registrasi.create');
+        $himpunans = Himpunan::latest()->get();
+        
+        return view('registrasi.create', compact('himpunans'));
     }
 
     public function store(Request $request)
@@ -52,7 +56,7 @@ class RegistrasiMemberController extends Controller
             'rw' => 'required',
             'rt' => 'required',
             'alamat' => 'required',
-            // 'himpunan_id' => 'required',
+            'himpunan_id' => 'required',
             // 'user_fo_id' => 'required',
         ]);
 
@@ -88,7 +92,7 @@ class RegistrasiMemberController extends Controller
             'rw' => $request->rw,
             'rt' => $request->rt,
             'alamat' => $request->alamat,
-            'himpunan_id' => 0,
+            'himpunan_id' => $request->himpunan_id,
             'user_fo_id' => 0
         ]);
         
@@ -96,5 +100,6 @@ class RegistrasiMemberController extends Controller
         //redirect to index
         return redirect()->route('login.index')->with(['success' => 'Buat Akun Berhasil Silahkan Login!']);
     }
+
 
 }

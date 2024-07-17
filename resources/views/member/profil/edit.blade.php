@@ -1,4 +1,4 @@
-<x-app-layout-fo title="Profil Member">
+<x-app-layout-member title="Profil Member">
 
   <!-- Content Start -->
   <div class="container-fluid">
@@ -526,7 +526,7 @@
 
       <div class="row">
 
-        <div class="col-lg-6 mb-4">
+        <div class="col-lg-12 mb-4">
           <label
             for="himpunan_id"
             class="form-label content-medium-dashboard"
@@ -537,44 +537,15 @@
             class="form-select  @error('himpunan_id') is-invalid @enderror"
             id="himpunan_id"
             name="himpunan_id"
-            value="{{ old('himpunan_id', $usermember->himpunan_id) }}"
-            disabled
           >
-            <option selected>Pilih Nama Himpunan</option>
-            <option value="1">Kembang Sari</option>
-            <option value="2">Kembang Mawar</option>
+          <option value="">Pilih Nama Himpunan</option>
+          @foreach($himpunans as $himpunan)
+              <option {{ $himpunan->id == $usermember->himpunan_id ? 'selected' : '' }} value="{{ $himpunan->id }}">{{ $himpunan->nama_himpunan }}</option>
+              @endforeach
           </select>
 
           <!-- error message-->
           @error('himpunan_id')
-          <div class="alert alert-danger mt-2">
-              {{ $message }}
-          </div>
-         @enderror
-
-        </div>
-
-        <div class="col-lg-6 mb-4">
-          <label
-            for="user_fo_id"
-            class="form-label content-medium-dashboard"
-            >Nama FO ( Field Officer ) *</label
-          >
-          <select
-            type="text"
-            class="form-select  @error('user_fo_id') is-invalid @enderror"
-            id="user_fo_id"
-            name="user_fo_id"
-            value="{{ old('user_fo_id', $usermember->user_fo_id) }}"
-            disabled
-          >
-            <option selected>Pilih Nama FO</option>
-            <option value="1">Fikri</option>
-            <option value="2">Iqbal Al Fikri Rachman</option>
-          </select>
-
-          <!-- error message-->
-          @error('user_fo_id')
           <div class="alert alert-danger mt-2">
               {{ $message }}
           </div>
@@ -597,4 +568,4 @@
  
   <!-- Content End -->
  
- </x-app-layout-fo>
+ </x-app-layout-member>

@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Himpunan;
 use App\Models\User;
 use App\Models\UserFO;
-use App\Models\UserMember;
 
 //import return type View
+use App\Models\UserMember;
 use Illuminate\View\View;
 
 //import return type redirectResponse
@@ -24,37 +24,42 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
 
-class MemberProfilController extends Controller
+class AnggotaHimpunanController extends Controller
 {
-    public function show(): View
-    {
-        $userId = Auth::id();
-        $user = User::findOrFail($userId);
-        $usermember = UserMember::where('user_id', $userId)->firstOrFail();
-        $himpunans = Himpunan::where('id', $usermember->himpunan_id)->firstOrFail();
-        $userfos = UserFO::where('user_id', $himpunans->user_fo_id)->firstOrFail();
 
-        return view('member.profil.show', compact('user', 'usermember', 'himpunans', 'userfos'));
-    }
-
-    public function edit(): View
-    {
-            $userId = Auth::id();
-            $user = User::findOrFail($userId);
-            $usermember = UserMember::where('user_id', $userId)->firstOrFail();
-            $himpunans = Himpunan::latest()->get();
+  public function index(string $id) : View
+  {
+    $usermembers = UserMember::where('himpunan_id', $id)->latest()->paginate(10);
     
-            return view('member.profil.edit', compact('user', 'usermember', 'himpunans'));
-    }
-        
-    public function update(Request $request)
+    return view('fo.himpunansaya.anggotahimpunan.index', compact('usermembers'));
+  }
+
+  public function show(string $id) : View
+  {
+    $user = User::findOrFail($id);
+    $usermember = UserMember::where('user_id', $id)->firstOrFail();
+    $himpunans = Himpunan::where('id', $usermember->himpunan_id)->firstOrFail();
+    $userfos = UserFO::where('user_id', $himpunans->user_fo_id)->firstOrFail();
+    
+    return view('fo.himpunansaya.anggotahimpunan.show',  compact('usermember', 'user', 'userfos', 'himpunans'));
+  }
+
+  public function edit(string $id) : View
+  {
+    $user = User::findOrFail($id);
+    $usermember = UserMember::where('user_id', $id)->firstOrFail();
+    $himpunans = Himpunan::where('id', $usermember->himpunan_id)->latest()->get();
+    
+    return view('fo.himpunansaya.anggotahimpunan.edit',  compact('usermember', 'user', 'himpunans'));
+  }
+
+  public function update(Request $request, $id)
     {
-        $userId = Auth::id();
-        $user = User::findOrFail($userId);
-        $usermember = UserMember::where('user_id', $userId)->firstOrFail();
+      $user = User::findOrFail($id);
+      $usermember = UserMember::where('user_id', $id)->firstOrFail();
        
         $request->validate([
-            'username' => 'required|unique:users,username,'.$userId,
+            'username' => 'required|unique:users,username,'.$id,
             'password' => 'nullable|min:8|confirmed',
             'nama' => 'required',
             'nik' => 'required|unique:user_members,nik,'.$usermember->id,
@@ -75,15 +80,13 @@ class MemberProfilController extends Controller
             'himpunan_id' => 'required',
         ]);
 	
-        $user = User::findOrFail($userId);
-
         if($request->password != null) {
-            $user = User::findOrFail($userId)->update([
+            $user = User::findOrFail($id)->update([
                 'username' => $request->username,
                 'password' => Hash::make($request->password),
             ]);
         } else {
-            $user = User::findOrFail($userId)->update([
+            $user = User::findOrFail($id)->update([
                 'username' => $request->username,
             ]);
         }
@@ -106,7 +109,7 @@ class MemberProfilController extends Controller
            Storage::delete('public/'.$usermember->foto_kk);
            
            UserMember::findOrFail($usermember->id)->update([
-           'user_id' => $userId,
+           'user_id' => $id,
            'nama' => $request->nama,
            'nik' => $request->nik,
            'no_kk' => $request->no_kk,
@@ -137,7 +140,7 @@ class MemberProfilController extends Controller
 
     
         UserMember::findOrFail($usermember->id)->update([
-            'user_id' => $userId,
+            'user_id' => $id,
             'nama' => $request->nama,
             'nik' => $request->nik,
             'no_kk' => $request->no_kk,
@@ -166,7 +169,7 @@ class MemberProfilController extends Controller
         Storage::delete('public/'.$usermember->foto_kk);
 
     UserMember::findOrFail($usermember->id)->update([
-        'user_id' => $userId,
+        'user_id' => $id,
         'nama' => $request->nama,
         'nik' => $request->nik,
         'no_kk' => $request->no_kk,
@@ -188,7 +191,7 @@ class MemberProfilController extends Controller
     } else {
         
         UserMember::findOrFail($usermember->id)->update([
-            'user_id' => $userId,
+            'user_id' => $id,
             'nama' => $request->nama,
             'nik' => $request->nik,
             'no_kk' => $request->no_kk,
@@ -207,7 +210,26 @@ class MemberProfilController extends Controller
         ]);
     }
 
-        return redirect()->route('member.dashboard.index')->with(['success' => 'Profil Anda Berhasil Diperbarui.']);
+        return redirect()->route('fo.anggotahimpunan.index', $usermember->himpunan_id )->with(['success' => 'Profil Anggota Berhasil Diperbarui.']);
     }
+  public function destroy($id) : RedirectResponse
+  {
+    $user = User::findOrFail($id);
+    $usermember = UserMember::where('user_id', $id)->firstOrFail();
 
+    $user->delete();
+    $usermember->delete();
+
+    return redirect()->route('fo.anggotahimpunan.index', $usermember->user_id)->with(['success' => 'Data Berhasil Dihapus!']);
+  }
+
+  public function dashboard($id) : View
+  {
+    $user = User::findOrFail($id);
+    $usermember = UserMember::where('user_id', $id)->firstOrFail();
+    
+    return view('fo.himpunansaya.anggotahimpunan.dashboard', compact('user', 'usermember'));
+  }
+  
+  
 }

@@ -100,19 +100,6 @@
                 </a>
             </li>
 
-              {{-- <li class="sidebar-item mb-3">
-                <a
-                  class="sidebar-link"
-                  href="{{ request()->is('admin.himpunans.index') || request()->is('admin.himpunans.create') ? 'active' : '' }}"
-                  aria-expanded="false"
-                >
-                  <span>
-                    <i class="bi bi-people"></i>
-                  </span>
-                  <span class="hide-menu">Pengaturan Himpunan</span>
-                </a>
-              </li>--}}
-              
             </ul>
           </nav>
           <!-- End Sidebar navigation -->
@@ -152,7 +139,11 @@
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    <h5 class="content-large-dashboard mx-3">Hi, John Doe</h5>
+                  @if(Auth::check())
+                    
+                  <h5 class="content-large-dashboard mx-3">Hi, {{ Auth::user()->username }}</h5>
+            
+                  @endif
                     <i class="bi bi-chevron-down icon-sm mb-1"></i>
                   </a>
                   <div

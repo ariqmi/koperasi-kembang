@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Himpunan; 
 
 //import return type View
+use App\Models\UserFO;
 use App\Models\UserMember;
 use Illuminate\View\View;
 
@@ -32,7 +33,7 @@ class HimpunanController extends Controller
 
         foreach ($himpunans as $himpunan) {
             $jumlahAnggota = UserMember::where('himpunan_id', $himpunan->id)->count();
-            $himpunan->jumlah_himpunan = $jumlahAnggota;
+            $himpunan->jumlah_anggota = $jumlahAnggota;
         }
 
         //render view with himpunans
@@ -41,8 +42,9 @@ class HimpunanController extends Controller
 
     public function create(): view 
     {
-         
-        return view('admin.himpunans.create');
+        $userfos = UserFO::latest()->get();
+            
+        return view('admin.himpunans.create', compact('userfos'));
     }
 
     public function store(Request $request): RedirectResponse
@@ -58,7 +60,7 @@ class HimpunanController extends Controller
             'rw'                => 'required|numeric',
             'rt'                => 'required|numeric',
             'alamat'            => 'required',
-            // 'user_fo_id'        => 'required',
+            'user_fo_id'        => 'required',
             'mitra'             => 'required',
             'email_mitra'       => 'required|email',
             'no_hp_mitra'       => 'required|numeric'
@@ -75,8 +77,7 @@ class HimpunanController extends Controller
             'rw'                => $request->rw,
             'rt'                => $request->rt,
             'alamat'            => $request->alamat,
-            // todo:ganti value user_fo_id
-            'user_fo_id'        => 1, 
+            'user_fo_id'        => $request->user_fo_id, 
             'mitra'             => $request->mitra,
             'email_mitra'       => $request->email_mitra,
             'no_hp_mitra'       => $request->no_hp_mitra
@@ -93,9 +94,10 @@ class HimpunanController extends Controller
         //get himpunan by ID
         $himpunan = Himpunan::findOrFail($id);
         $jumlahAnggota = UserMember::where('himpunan_id', $id)->count();
+        $userfos = UserFO::where('user_id', $himpunan->user_fo_id)->firstOrFail();
 
         //render view with himpunan
-        return view('admin.himpunans.show', ['jumlahAnggota' => $jumlahAnggota, 'himpunan' => $himpunan]);
+        return view('admin.himpunans.show', ['jumlahAnggota' => $jumlahAnggota, 'himpunan' => $himpunan, 'userfos' => $userfos]);
     }
 
     public function edit(string $id): View
@@ -103,9 +105,10 @@ class HimpunanController extends Controller
 	//get himpunan by ID
     $himpunan = Himpunan::findOrFail($id);
     $jumlahAnggota = UserMember::where('himpunan_id', $id)->count();
+    $userfos = UserFO::latest()->get();
 
         //render view with himpunan
-        return view('admin.himpunans.edit', ['jumlahAnggota' => $jumlahAnggota, 'himpunan' => $himpunan]);
+        return view('admin.himpunans.edit', ['jumlahAnggota' => $jumlahAnggota, 'himpunan' => $himpunan, 'userfos' => $userfos]);
     }
 
     public function update(Request $request, $id): RedirectResponse
@@ -121,7 +124,7 @@ class HimpunanController extends Controller
             'rw'                => 'required|numeric',
             'rt'                => 'required|numeric',
             'alamat'            => 'required',
-            // 'user_fo_id'        => 'required',
+            'user_fo_id'        => 'required',
             'mitra'             => 'required',
             'email_mitra'       => 'required|email',
             'no_hp_mitra'       => 'required|numeric'
@@ -139,8 +142,7 @@ class HimpunanController extends Controller
             'rw'                => $request->rw,
             'rt'                => $request->rt,
             'alamat'            => $request->alamat,
-            // todo:ganti value user_fo_id
-            'user_fo_id'        => 1, 
+            'user_fo_id'        => $request->user_fo_id,
             'mitra'             => $request->mitra,
             'email_mitra'       => $request->email_mitra,
             'no_hp_mitra'       => $request->no_hp_mitra

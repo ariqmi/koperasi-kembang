@@ -39,7 +39,7 @@
                     <tr>
                         <td>{{ ($himpunans->currentPage() - 1) * $himpunans->perPage() + $index + 1 }}</td>
                         <td>{{ $himpunan->nama_himpunan }}</td>
-                        <td>{{ $himpunan->jumlah_himpunan }}</td>
+                        <td>{{ $himpunan->jumlah_anggota }}</td>
                         <td>
                             <form onsubmit="return confirm('Apakah Anda Yakin Ingin Menghapus ?');" action="{{ route('admin.himpunans.destroy', $himpunan->id) }}" method="POST">
                               <a     
