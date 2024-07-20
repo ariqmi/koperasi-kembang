@@ -27,9 +27,10 @@ class FODashboardController extends Controller
         $user = User::findOrFail($userId);
         $userfo = UserFO::where('user_id', $userId)->firstOrFail();
 
-        $himpunan = Himpunan::where('user_fo_id', $userId)->firstOrFail();
+        $listhimpunanid = Himpunan::where('user_fo_id', $userId)->pluck('id')->all();
+
         $jumlahHimpunan = Himpunan::where('user_fo_id', $userId)->count();
-        $jumlahAnggota= UserMember::where('himpunan_id', $himpunan->id)->count();
+        $jumlahAnggota= UserMember::whereIn('himpunan_id', $listhimpunanid)->count();
 
 
         //render view

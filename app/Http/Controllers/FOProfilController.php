@@ -10,9 +10,6 @@ use App\Models\UserFO;
 use App\Models\UserMember;
 use Illuminate\View\View;
 
-//import return type redirectResponse
-use Illuminate\Http\RedirectResponse;
-
 //import Http Request
 use Illuminate\Http\Request;
 
@@ -146,7 +143,6 @@ class FOProfilController extends Controller
             'alamat' => $request->alamat,
             'sertifikasi' => $request->sertifikasi,
             'coverage_area' => $request->coverage_area,
-            // todo: setelah ada auth ganti value
         ]);
     }
 

@@ -30,4 +30,15 @@ class KumpulanAnggota extends Model
         'iuran_anggota',
         'lainnya'
     ];
+
+    public function userMember()
+    {
+        return $this->belongsTo(UserMember::class);
+    }
+
+    public function Kumpulan()
+    {
+        return $this->belongsTo(Kumpulan::class);
+    }
+
 }

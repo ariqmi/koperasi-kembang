@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-lg-6">
       <h2 class="title-large-dashboard mb-0">
-        Kelola Kumpulan Nama
+        Kelola Kumpulan
       </h2>
 
       <nav aria-label="breadcrumb">
@@ -14,7 +14,7 @@
             <a href="{{ route('fo.himpunansaya.index') }}">Himpunan Saya</a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
-            Kelola Kumpulan Nama
+            Kelola Kumpulan
           </li>
         </ol>
       </nav>
@@ -40,20 +40,26 @@
       </tr>
     </thead>
     <tbody>
+      @forelse ($kumpulans as $index => $kumpulan)
       <tr>
-        <td>1</td>
-        <td>Ke-1</td>
-        <td>12-07-23</td>
+          <td>{{ ($kumpulans->currentPage() - 1) * $kumpulans->perPage() + $index + 1 }}</td>
+          <td>ke-{{ ($kumpulans->currentPage() - 1) * $kumpulans->perPage() + $index + 1 }}</td>
+          <td>{{ $kumpulan->tanggal }}</td>
         <td>
           <a
             type="submit"
-            href="{{ route('fo.kelolakumpulan.edit') }}"
+            href="{{ route('fo.kelolakumpulan.edit', $kumpulan->id) }}"
             class="button-icon-edit me-1"
           >
             <i class="bi bi-pencil-square"></i>
           </a>
         </td>
       </tr>
+      @empty
+                    <div class="alert alert-danger">
+                        Data Kumpulan belum Ada.
+                    </div>
+                @endforelse
     </tbody>
   </table>
 </div>

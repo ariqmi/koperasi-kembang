@@ -29,7 +29,7 @@
         <div class="card shadow-sm">
           <div class="p-4">
             <h2 class="title-medium-dashboard">Pinjaman</h2>
-            <h1 class="title-xlarge-dashboard">500.000</h1>
+            <h1 class="title-xlarge-dashboard">{{ number_format($pinjaman,0,',','.') }}</h1>
           </div>
         </div>
       </div>
@@ -38,7 +38,7 @@
         <div class="card shadow-sm">
           <di class="p-4">
             <h2 class="title-medium-dashboard">Simpanan Anggota</h2>
-            <h1 class="title-xlarge-dashboard">25.000</h1>
+            <h1 class="title-xlarge-dashboard">{{ number_format($simpanananggota,0,',','.') }}</h1>
           </di>
         </div>
       </div>
@@ -49,7 +49,7 @@
         <div class="card shadow-sm">
           <div class="p-4">
             <h2 class="title-medium-dashboard">Simpanan Kelompok</h2>
-            <h1 class="title-xlarge-dashboard">50.000</h1>
+            <h1 class="title-xlarge-dashboard">{{ number_format($simpanankelompok,0,',','.') }}</h1>
           </div>
         </div>
       </div>
@@ -58,7 +58,7 @@
         <div class="card shadow-sm">
           <di class="p-4">
             <h2 class="title-medium-dashboard">Simpanan Sukarela</h2>
-            <h1 class="title-xlarge-dashboard">64.000</h1>
+            <h1 class="title-xlarge-dashboard">{{ number_format($simpanankelompok,0,',','.') }}</h1>
           </di>
         </div>
       </div>

@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-lg-12">
       <h2 class="title-large-dashboard mb-0">
-        Edit Nama
+        Edit {{ $usermember->nama }}
       </h2>
 
       <nav aria-label="breadcrumb">
@@ -17,7 +17,7 @@
             <a href="{{ route('fo.anggotahimpunan.index', $usermember->himpunan_id) }}">Daftar Anggota Himpunan</a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
-            Edit Nama
+            Edit {{ $usermember->nama }}
           </li>
         </ol>
       </nav>

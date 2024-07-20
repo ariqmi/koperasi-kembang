@@ -14,7 +14,7 @@
               <a href="{{ route('fo.himpunansaya.index') }}">Himpunan Saya</a>
             </li>
             <li class="breadcrumb-item">
-              <a href="{{ route('fo.kelolakumpulan.index') }}">Kelola Kumpulan Nama</a>
+              <a href="{{ route('fo.kelolakumpulan.index', $kumpulan->himpunan_id) }}">Kelola Kumpulan</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
               Edit Kumpulan
@@ -25,32 +25,38 @@
     </div>
 
     <div class="card p-3 shadow-sm">
-      <form>
+      <form id="edit_kumpulan" action="{{ route('fo.kelolakumpulan.update', $kumpulan->id) }}" method="POST">
+        
+        @csrf
+        @method('PUT')
+
         <div class="row">
           <div class="col-lg-12 mb-4">
             <label
-              for="input-tanggal-kumpulan"
+              for="tanggal"
               class="form-label content-medium-dashboard"
               >Tanggal Kumpulan *</label
             >
             <input
               type="date"
               class="form-control"
-              id="input-tanggal-kumpulan"
-              name="input-tanggal-kumpulan"
+              id="tanggal"
+              name="tanggal"
+              value="{{ old('tanggal' , $kumpulan->tanggal) }}"
             />
           </div>
           <div class="col-lg-12 mb-4">
             <label
-              for="input-judul-materi"
+              for="judul_materi"
               class="form-label content-medium-dashboard"
               >Judul Materi *</label
             >
             <input
               type="tel"
               class="form-control"
-              id="input-judul-materi"
-              name="input-judul-materi"
+              id="judul_materi"
+              name="judul_materi"
+              value="{{ old('judul_materi' , $kumpulan->judul_materi) }}"
             />
           </div>
         </div>
@@ -65,29 +71,31 @@
           </tr>
         </thead>
         <tbody>
+          @forelse ($kumpulananggotas as $index => $kumpulananggota)
           <tr>
-            <td>1</td>
-            <td>Dewi Chandra Kurniawati</td>
+              <td>{{ ($kumpulananggotas->currentPage() - 1) * $kumpulananggotas->perPage() + $index + 1 }}</td>
+              <td>{{ $kumpulananggota->userMember->nama }}</td>
             <td>
               <a
                 type="submit"
-                href="{{ route('fo.kumpulananggota.edit') }}"
+                href="{{ route('fo.kumpulananggota.edit', $kumpulananggota->id) }}"
                 class="button-icon-edit me-1"
               >
                 <i class="bi bi-pencil-square"></i>
               </a>
             </td>
           </tr>
+          @empty
+          <div class="alert alert-danger">
+              Data Anggota belum Ada.
+          </div>
+      @endforelse
         </tbody>
       </table>
 
-      <div class="col-lg-3 mx-auto mt-4">
-        <a
-          href="kumpulan-fo.html"
-          class="button-primary text-center mx-3 mt-2 d-block"
-          >Simpan</a
-        >
-      </div>
+      <div class="col-lg-3 mx-auto">
+      <a onclick="event.preventDefault(); document.getElementById('edit_kumpulan').submit();" class="button-primary text-center mx-3 mt-2 d-block">Simpan</a>
+    </div>
     </div>
   </div>
 </div>

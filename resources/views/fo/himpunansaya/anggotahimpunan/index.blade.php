@@ -61,7 +61,7 @@
             </button>
             <a
               type="submit"
-              href="{{ route('fo.anggotahimpunan.dashboard', $usermember->user_id) }}"
+              href="{{ route('fo.anggotahimpunan.dashboard', $usermember->id) }}"
               class="button-icon-kumpulan me-1"
             >
               <i class="bi bi-bar-chart-line"></i>

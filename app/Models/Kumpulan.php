@@ -15,6 +15,12 @@ class Kumpulan extends Model
      */
     protected $fillable = [
         'tanggal',
-        'judul_materi'
+        'judul_materi',
+        'himpunan_id'
     ];
+
+    public function kumpulanAnggotas()
+    {
+        return $this->hasMany(KumpulanAnggota::class);
+    }
 }

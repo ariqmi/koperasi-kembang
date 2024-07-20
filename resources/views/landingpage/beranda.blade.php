@@ -119,7 +119,7 @@
                         Koperasi Kembang Syariah Hadir Sebagai Solusi Bagi Anda
                       </h1>
                       <p class="mb-5 animate__animated animate__slideInDown">
-                        Dengan menyediakan layanan simpan pinjam yang profesional dan modern demi kesejahteraan anggota dan masyarakat.
+                        Dengan menyediakan layanan simpan pinjam yang profesional dan modern demi kesejahteraan anggota dan masyarakat
                       </p>
                     </div>
                   </div>
@@ -136,7 +136,7 @@
                         Koperasi Kembang Syariah Hadir Sebagai Solusi Bagi Anda
                       </h1>
                       <p class="mb-5 animate__animated animate__slideInDown">
-                        Untuk membangun jaringan kolaborasi dengan koperasi dan berbagai lembaga lainnya.
+                        Untuk membangun jaringan kolaborasi dengan koperasi dan berbagai lembaga lainnya
                       </p>
                     </div>
                   </div>
@@ -153,7 +153,7 @@
                         Koperasi Kembang Syariah Hadir Sebagai Solusi Bagi Anda
                       </h1>
                       <p class="mb-5 animate__animated animate__slideInDown">
-                        Untuk mengembangkan usaha-usaha sektor riil untuk kesejahteraan anggota, masyarakat, serta kemandirian koperasi.
+                        Untuk mengembangkan usaha-usaha sektor riil untuk kesejahteraan anggota, masyarakat, serta kemandirian koperasi
                       </p>
                     </div>
                   </div>
@@ -283,7 +283,7 @@
                 <div class="card-layanan-img rounded">
                   <img
                     class="img-fluid"
-                    src="{{ url('img/img-card-layanan.png')}}"
+                    src="{{ url('img/img-card-layanan-1.png')}}"
                     alt=""
                   />
                 </div>
@@ -291,14 +291,13 @@
                   <div class="rounded mx-auto mb-3">
                     <img
                       class="img-fluid"
-                      src="{{ url('img/icon-card-layanan.png')}}"
+                      src="{{ url('img/icon-card-layanan-1.png')}}"
                       alt="Icon"
                     />
                   </div>
                   <h4>Qadrul Hasan</h4>
                   <p>
-                    Erat ipsum justo amet duo et elitr dolor, est duo duo eos
-                    lorem sed diam stet diam sed stet.
+                    Pinjaman bergulir tanpa bunga dengan skema tanggung renteng.
                   </p>
                 </div>
               </div>
@@ -308,7 +307,7 @@
                 <div class="card-layanan-img rounded">
                   <img
                     class="img-fluid"
-                    src="{{ url('img/img-card-layanan.png')}}"
+                    src="{{ url('img/img-card-layanan-2.png')}}"
                     alt=""
                   />
                 </div>
@@ -316,14 +315,13 @@
                   <div class="rounded mx-auto mb-3">
                     <img
                       class="img-fluid"
-                      src="{{ url('img/icon-card-layanan.png')}}"
+                      src="{{ url('img/icon-card-layanan-2.png')}}"
                       alt="Icon"
                     />
                   </div>
-                  <h4>Qadrul Hasan</h4>
+                  <h4>Murabahah</h4>
                   <p>
-                    Erat ipsum justo amet duo et elitr dolor, est duo duo eos
-                    lorem sed diam stet diam sed stet.
+                    Pinjaman skema pembiayaan murahabah dan mudharabah.
                   </p>
                 </div>
               </div>
@@ -333,7 +331,7 @@
                 <div class="card-layanan-img rounded">
                   <img
                     class="img-fluid"
-                    src="{{ url('img/img-card-layanan.png')}}"
+                    src="{{ url('img/img-card-layanan-3.png')}}"
                     alt=""
                   />
                 </div>
@@ -341,14 +339,13 @@
                   <div class="rounded mx-auto mb-3">
                     <img
                       class="img-fluid"
-                      src="{{ url('img/icon-card-layanan.png')}}"
+                      src="{{ url('img/icon-card-layanan-3.png')}}"
                       alt="Icon"
                     />
                   </div>
-                  <h4>Qadrul Hasan</h4>
+                  <h4>Unit Bisnis</h4>
                   <p>
-                    Erat ipsum justo amet duo et elitr dolor, est duo duo eos
-                    lorem sed diam stet diam sed stet.
+                    Menyediakan toko sembako dan aneka kebutuhan anggota.
                   </p>
                 </div>
               </div>
@@ -376,80 +373,80 @@
 
             <div class="col-lg-3 col-md-6 animate__animated animate__fadeInUp">
               <div class="card-galeri rounded">
-                <img class="" src="{{ url('img/card-galeri.png')}}" alt="" width="100%" />
+                <img class="" src="{{ url('img/card-galeri-1.png')}}" alt="" width="100%" />
                 <div>
                   <h4 class="section-content-medium card-galeri-text">
-                    Aktivitas Setoran Tabungan
+                    Kegiatan Jambore & Rapat Tahunan
                   </h4>
                 </div>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 animate__animated animate__fadeInUp">
               <div class="card-galeri rounded">
-                <img class="" src="{{ url('img/card-galeri.png')}}" alt="" width="100%" />
+                <img class="" src="{{ url('img/card-galeri-2.png')}}" alt="" width="100%" />
                 <div>
                   <h4 class="section-content-medium card-galeri-text">
-                    Aktivitas Setoran Tabungan
+                    Kegiatan Pencairan Pinjaman
                   </h4>
                 </div>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 animate__animated animate__fadeInUp">
               <div class="card-galeri rounded">
-                <img class="" src="{{ url('img/card-galeri.png')}}" alt="" width="100%" />
+                <img class="" src="{{ url('img/card-galeri-3.png')}}" alt="" width="100%" />
                 <div>
                   <h4 class="section-content-medium card-galeri-text">
-                    Aktivitas Setoran Tabungan
+                    Aktivitas Pembinaan Anggota
                   </h4>
                 </div>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 animate__animated animate__fadeInUp">
               <div class="card-galeri rounded">
-                <img class="" src="{{ url('img/card-galeri.png')}}" alt="" width="100%" />
+                <img class="" src="{{ url('img/card-galeri-4.png')}}" alt="" width="100%" />
                 <div>
                   <h4 class="section-content-medium card-galeri-text">
-                    Aktivitas Setoran Tabungan
+                    Kegiatan Makan Bersama
                   </h4>
                 </div>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 animate__animated animate__fadeInUp">
               <div class="card-galeri rounded">
-                <img class="" src="{{ url('img/card-galeri.png')}}" alt="" width="100%" />
+                <img class="" src="{{ url('img/card-galeri-5.png')}}" alt="" width="100%" />
                 <div>
                   <h4 class="section-content-medium card-galeri-text">
-                    Aktivitas Setoran Tabungan
+                    Kegiatan Jambore & Rapat Tahunan
                   </h4>
                 </div>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 animate__animated animate__fadeInUp">
               <div class="card-galeri rounded">
-                <img class="" src="{{ url('img/card-galeri.png')}}" alt="" width="100%" />
+                <img class="" src="{{ url('img/card-galeri-6.png')}}" alt="" width="100%" />
                 <div>
                   <h4 class="section-content-medium card-galeri-text">
-                    Aktivitas Setoran Tabungan
+                    Kegiatan Kumpulan Himpunan
                   </h4>
                 </div>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 animate__animated animate__fadeInUp">
               <div class="card-galeri rounded">
-                <img class="" src="{{ url('img/card-galeri.png')}}" alt="" width="100%" />
+                <img class="" src="{{ url('img/card-galeri-7.png')}}" alt="" width="100%" />
                 <div>
                   <h4 class="section-content-medium card-galeri-text">
-                    Aktivitas Setoran Tabungan
+                    Kegiatan Jambore & Rapat Tahunan
                   </h4>
                 </div>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 animate__animated animate__fadeInUp">
               <div class="card-galeri rounded">
-                <img class="" src="{{ url('img/card-galeri.png')}}" alt="" width="100%" />
+                <img class="" src="{{ url('img/card-galeri-8.png')}}" alt="" width="100%" />
                 <div>
                   <h4 class="section-content-medium card-galeri-text">
-                    Aktivitas Setoran Tabungan
+                    Kegiatan Jambore & Rapat Tahunan
                   </h4>
                 </div>
               </div>
@@ -483,11 +480,11 @@
                     alt=""
                   />
                   <p class="section-content-medium">
-                    “Merupakan koperasi yang bergerak pada bidang simpanan,
-                    pembiayaan, dan investasi berdasarkan penerapan sistem bagi
-                    hasil (syariah).”
+                    “Alhamdulillah setelah bergabung di koperasi ini banyak sekali manfaat yg saya dapatkan, 
+                    khususnya untuk tambahan modal usaha yg saya jalani, sehingga penjualan saya lebih meningkat dari sebelumnya.. 
+                    Terima kasih koperasi Kembang 😊🙏.”
                   </p>
-                  <h4 class="section-content">Jenny Wilson</h4>
+                  <h4 class="section-content">Alinda</h4>
                 </div>
                 <div class="testimoni-item">
                   <img
@@ -496,24 +493,22 @@
                     alt=""
                   />
                   <p class="section-content-medium">
-                    “Merupakan koperasi yang bergerak pada bidang simpanan,
-                    pembiayaan, dan investasi berdasarkan penerapan sistem bagi
-                    hasil (syariah).”
+                    “Setelah bergabung dgn koperasi ini banyak hikmahnya pas butuh 
+                    tambah modal ada Terima kasih semoga berkah untuk semuanya 🤲🏻🤲🏻🙏🏻🙏🏻.”
                   </p>
-                  <h4 class="section-content">Devon Lane</h4>
+                  <h4 class="section-content">Nia</h4>
                 </div>
                 <div class="testimoni-item">
                   <img
                     class="img-fluid rounded mb-3"
                     src="{{ url('img/testimoni-3.png')}}"
-                    alt=""
+                    alt=""  
                   />
                   <p class="section-content-medium">
-                    “Merupakan koperasi yang bergerak pada bidang simpanan,
-                    pembiayaan, dan investasi berdasarkan penerapan sistem bagi
-                    hasil (syariah).”
+                    “Dengan adanya koperasi ini, saya merasa terbantu secara ekonomi dan agama. Koperasi ini membantu 
+                    memulai usaha kecil tanpa bunga, meringankan beban ibu rumah tangga seperti saya.”
                   </p>
-                  <h4 class="section-content">Robert Fox</h4>
+                  <h4 class="section-content">Siti Yulistiani</h4>
                 </div>
               </div>
             </div>
@@ -555,7 +550,7 @@
                 Mari Bergabung Dengan Koperasi
                 <span class="section-title-highlight">Kembang Syariah</span>
               </h1>
-              <a class="button-primary" href="registrasi.html">
+              <a class="button-primary" href="https://api.whatsapp.com/send/?phone=6282211814414&text&type=phone_number&app_absent=0" target="blank">
                 Gabung Sekarang
               </a>
             </div>

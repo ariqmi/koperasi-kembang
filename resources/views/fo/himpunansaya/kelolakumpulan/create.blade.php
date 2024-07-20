@@ -25,24 +25,26 @@
     </div>
 
     <div class="card p-3 shadow-sm">
-      <form>
+      <form id="add_kumpulan" action="{{ route('fo.kelolakumpulan.store', $himpunan_id) }}" method="POST">
+      
+        @csrf
         <div class="row">
           <div class="col-lg-12 mb-4">
             <label
-              for="tanggal_kumpulan"
+              for="tanggal"
               class="form-label content-medium-dashboard"
               >Tanggal Kumpulan *</label
             >
             <input
               type="date"
-              class="form-control @error('tanggal_kumpulan') is-invalid @enderror"
-              id="tanggal_kumpulan"
-              name="tanggal_kumpulan"
-              value="{{ old('tanggal_kumpulan') }}"
+              class="form-control @error('tanggal') is-invalid @enderror"
+              id="tanggal"
+              name="tanggal"
+              value="{{ old('tanggal') }}"
             />
   
             <!-- error message-->
-            @error('tanggal_kumpulan')
+            @error('tanggal')
             <div class="alert alert-danger mt-2">
                 {{ $message }}
             </div>
@@ -107,12 +109,9 @@
         </tbody>
       </table>
 
-      <div class="col-lg-3 mx-auto mt-4">
-        <a
-          href="kumpulan-fo.html"
-          class="button-primary text-center mx-3 mt-2 d-block"
-          >Simpan</a
-        >
+        <div class="col-lg-3 mx-auto">
+          <a onclick="event.preventDefault(); document.getElementById('add_kumpulan').submit();" class="button-primary text-center mx-3 mt-2 d-block">Simpan</a>
+        </div>
       </div>
     </div>
   </div>

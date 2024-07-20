@@ -78,7 +78,6 @@ Route::put('/foprofil/update', [FOProfilController::class,'update'])->name('fo.p
 
 //route for himpunan saya
 Route::get('/himpunansaya', [HimpunanSayaController::class,'index'])->name('fo.himpunansaya.index')->middleware('role:' . UserRole::Fo->value);
-// todo:ganti setelah ada parameter id
 Route::get('/himpunansaya/{id}', [HimpunanSayaController::class,'show'])->name('fo.himpunansaya.show')->middleware('role:' . UserRole::Fo->value);
 
 //route for anggota himpunan
@@ -92,12 +91,15 @@ Route::get('/anggotahimpunan/dashboard/{id}', [AnggotaHimpunanController::class,
 //route for kelola kumpulan
 Route::get('/kelolakumpulan/{id}', [KelolaKumpulanController::class,'index'])->name('fo.kelolakumpulan.index')->middleware('role:' . UserRole::Fo->value);
 Route::get('/kelolakumpulan/create/{id}', [KelolaKumpulanController::class,'create'])->name('fo.kelolakumpulan.create')->middleware('role:' . UserRole::Fo->value);
-// todo:ganti setelah ada parameter id
-Route::get('/kelolakumpulan/edit', [KelolaKumpulanController::class,'edit'])->name('fo.kelolakumpulan.edit')->middleware('role:' . UserRole::Fo->value);
+Route::post('/kelolakumpulan/store/{id}', [KelolaKumpulanController::class,'store'])->name('fo.kelolakumpulan.store')->middleware('role:' . UserRole::Fo->value);
+Route::get('/kelolakumpulan/edit/{id}', [KelolaKumpulanController::class,'edit'])->name('fo.kelolakumpulan.edit')->middleware('role:' . UserRole::Fo->value);
+Route::put('/kelolakumpulan/update/{id}', [KelolaKumpulanController::class,'update'])->name('fo.kelolakumpulan.update')->middleware('role:' . UserRole::Fo->value);
 
 //route for kelola kumpulan anggota
 Route::get('kumpulananggota/create/{id}', [KelolaKumpulanController::class,'createanggota'])->name('fo.kumpulananggota.create')->middleware('role:' . UserRole::Fo->value);
-Route::get('kumpulananggota/edit', [KelolaKumpulanController::class,'editanggota'])->name('fo.kumpulananggota.edit')->middleware('role:' . UserRole::Fo->value);
+Route::post('kumpulananggota/store/{id}', [KelolaKumpulanController::class,'storeanggota'])->name('fo.kumpulananggota.store')->middleware('role:' . UserRole::Fo->value);
+Route::get('kumpulananggota/edit/{id}', [KelolaKumpulanController::class,'editanggota'])->name('fo.kumpulananggota.edit')->middleware('role:' . UserRole::Fo->value);
+Route::put('kumpulananggota/update/{id}', [KelolaKumpulanController::class,'updateanggota'])->name('fo.kumpulananggota.update')->middleware('role:' . UserRole::Fo->value);
 
 
 
@@ -110,5 +112,4 @@ Route::get('/memberprofil/edit', [MemberProfilController::class,'edit'])->name('
 Route::put('/memberprofil/update', [MemberProfilController::class,'update'])->name('member.profil.update')->middleware('role:' . UserRole::Member->value);
 
 Route::get('/kumpulansaya', [KumpulanSayaController::class,'index'])->name('member.kumpulansaya.index')->middleware('role:' . UserRole::Member->value);
-// todo:ganti setelah ada paramter id
-Route::get('/kumpulansaya/show', [KumpulanSayaController::class,'show'])->name('member.kumpulansaya.show')->middleware('role:' . UserRole::Member->value);
+Route::get('/kumpulansaya/show/{id}', [KumpulanSayaController::class,'show'])->name('member.kumpulansaya.show')->middleware('role:' . UserRole::Member->value);

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kumpulan;
+use App\Models\KumpulanAnggota;
 use App\Models\User;
 
 //import return type View
+use App\Models\UserMember;
 use Illuminate\View\View;
 
 //import return type redirectResponse
@@ -25,12 +28,19 @@ class KumpulanSayaController extends Controller
 {
   public function index() : View
   {
-      return view('member.kumpulansaya.index');
+    $userId = Auth::id();
+    $userMember = UserMember::where('user_id', $userId)->firstOrFail();
+    $kumpulans = KumpulanAnggota::where('user_member_id', $userMember->id)->paginate(10);
+
+    return view('member.kumpulansaya.index', compact('kumpulans'));
   }
 
-  public function show() : View
+  public function show($id) : View
   {
-      return view('member.kumpulansaya.show');
+    $kumpulananggota = KumpulanAnggota::findOrFail($id);
+
+    return view('member.kumpulansaya.show', compact('kumpulananggota'));
+
   }
   
   

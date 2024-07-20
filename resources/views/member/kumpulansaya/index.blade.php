@@ -27,20 +27,26 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Ke-1</td>
-          <td>12-07-23</td>
+        @forelse ($kumpulans as $index => $kumpulan)
+      <tr>
+          <td>{{ ($kumpulans->currentPage() - 1) * $kumpulans->perPage() + $index + 1 }}</td>
+          <td>ke-{{ ($kumpulans->currentPage() - 1) * $kumpulans->perPage() + $index + 1 }}</td>
+          <td>{{ $kumpulan->kumpulan->tanggal }}</td>
           <td>
             <a
               type="submit"
-              href="{{ route('member.kumpulansaya.show') }}"
+              href="{{ route('member.kumpulansaya.show', $kumpulan->id) }}"
               class="button-icon me-1"
             >
               <i class="bi bi-eye"></i>
             </a>
           </td>
         </tr>
+        @empty
+        <div class="alert alert-danger">
+            Data Kumpulan belum Ada.
+        </div>
+    @endforelse
       </tbody>
     </table>
   </div>

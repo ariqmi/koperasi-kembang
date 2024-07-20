@@ -160,8 +160,14 @@ class HimpunanController extends Controller
 	//get himpunan by ID
     $himpunan = Himpunan::findOrFail($id);
 
-    //delete himpunan
-    $himpunan->delete();
+    $jumlahusermember = UserMember::where('himpunan_id', $id)->count();
+
+    if ($jumlahusermember == 0) {
+        //delete himpunan
+        $himpunan->delete();
+    } else {
+        return redirect()->route('admin.himpunans.index')->with(['error' => 'Himpunan Tidak Dapat Dihapus!']);
+    }
 
     //redirect to index
     return redirect()->route('admin.himpunans.index')->with(['success' => 'Data Berhasil Dihapus!']);
