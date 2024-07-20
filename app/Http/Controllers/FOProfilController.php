@@ -6,8 +6,10 @@ use App\Models\Himpunan;
 use App\Models\User;
 use App\Models\UserFO;
 
-//import return type View
+//import model
 use App\Models\UserMember;
+
+//import return type View
 use Illuminate\View\View;
 
 //import Http Request

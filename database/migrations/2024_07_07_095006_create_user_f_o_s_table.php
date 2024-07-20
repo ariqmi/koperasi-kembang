@@ -28,8 +28,6 @@ return new class extends Migration
             $table->text('alamat');
             $table->string('sertifikasi');
             $table->string('coverage_area');
-            $table->integer('jumlah_himpunan')->default(0);
-            $table->integer('jumlah_anggota')->default(0); 
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

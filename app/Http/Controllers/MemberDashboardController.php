@@ -2,19 +2,13 @@
 
 namespace App\Http\Controllers;
 
-//import return type View
+//import model
 use App\Models\KumpulanAnggota;
 use App\Models\UserMember;
+
+//import return type View
 use Illuminate\View\View;
 
-//import return type redirectResponse
-use Illuminate\Http\RedirectResponse;
-
-//import Http Request
-use Illuminate\Http\Request;
-
-//import Facades Storage
-use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Support\Facades\Auth;
 

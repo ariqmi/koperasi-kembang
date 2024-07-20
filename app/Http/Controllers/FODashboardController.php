@@ -3,12 +3,13 @@
 
 namespace App\Http\Controllers;
 
+//import model
 use App\Models\Himpunan;
 use App\Models\User;
 use App\Models\UserFO;
+use App\Models\UserMember;
 
 //import return type View
-use App\Models\UserMember;
 use Illuminate\View\View;
 
 use Illuminate\Support\Facades\Auth;

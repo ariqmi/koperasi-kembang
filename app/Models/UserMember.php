@@ -34,11 +34,6 @@ class UserMember extends Authenticatable
         'rt',
         'alamat',
         'himpunan_id',
-        'user_fo_id',
-        'sisa_cicilan',
-        'simpanan_pokok',
-        'simpanan_kelompok',
-        'simpanan_sukarela'
     ];
 
     public function user() {

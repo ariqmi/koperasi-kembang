@@ -27,6 +27,7 @@ return new class extends Migration
             $table->bigInteger('infaq');
             $table->bigInteger('iuran_anggota');
             $table->bigInteger('lainnya');
+            $table->timestamps();
         });
     }
 

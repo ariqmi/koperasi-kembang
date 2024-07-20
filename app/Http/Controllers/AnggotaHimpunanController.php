@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+//import model
 use App\Models\Himpunan;
 use App\Models\KumpulanAnggota;
 use App\Models\User;
 use App\Models\UserFO;
+use App\Models\UserMember;
 
 //import return type View
-use App\Models\UserMember;
 use Illuminate\View\View;
 
 //import return type redirectResponse
@@ -22,7 +23,6 @@ use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Support\Facades\Hash;
 
-use Illuminate\Support\Facades\Auth;
 
 
 class AnggotaHimpunanController extends Controller

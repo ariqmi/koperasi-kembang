@@ -32,11 +32,6 @@ return new class extends Migration
             $table->integer('rt');
             $table->text('alamat');
             $table->integer('himpunan_id');
-            $table->integer('user_fo_id');
-            $table->bigInteger('sisa_cicilan');
-            $table->bigInteger('simpanan_pokok');
-            $table->bigInteger('simpanan_kelompok');
-            $table->bigInteger('simpanan_sukarela');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Enums\UserRole;
+
+//import Http Request
 use Illuminate\Http\Request;
+
 use Auth;
 
 class AuthController extends Controller

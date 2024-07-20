@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-//import model user field officer
+//import model
 use App\Enums\UserRole;
 use App\Models\Himpunan;
 use App\Models\UserFO; 
+use App\Models\UserMember;
 
 use App\Models\User;
 
 //import return type View
-use App\Models\UserMember;
 use Illuminate\View\View;
 
 //import return type redirectResponse
