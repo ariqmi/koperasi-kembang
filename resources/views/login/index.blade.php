@@ -67,7 +67,7 @@
                   </a>
                   <h3 class="content-large-dashboard text-center mb-4">
                     Selamat Datang di Koperasi
-                    <span class="title-highlight">Kembang Syariah</span>
+                    <span class="title-highlight">Syariah Kembang</span>
                   </h3>
 
                   <form id="login_form" action="{{ route('login.verify') }}" method="POST">

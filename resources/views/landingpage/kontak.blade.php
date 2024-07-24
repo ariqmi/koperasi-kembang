@@ -127,13 +127,13 @@
           </div>
 
           <div
-            class="card-kontak-kami col-lg-6 col-md-6 animate__animated animate__fadeInUp"
+            class="card-kontak-kami col-lg-6 col-md-12 animate__animated animate__fadeInUp"
           >
             <i class="bi bi-telephone-fill me-2"></i>
             <h1 class="section-content">+62 822-1181-4414</h1>
           </div>
           <div
-            class="card-kontak-kami col-lg-6 col-md-6 animate__animated animate__fadeInUp"
+            class="card-kontak-kami col-lg-6 col-md-12 animate__animated animate__fadeInUp"
           >
             <i class="bi bi-envelope-fill me-2"></i>
             <h1 class="section-content">koperasi.kembang@gmail.com</h1>
@@ -211,7 +211,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12 text-center mb-3 mb-md-0">
-              &copy; <a href="#">Koperasi Kembang Syariah</a>, All Right
+              &copy; <a href="#">Koperasi Syariah Kembang</a>, All Right
               Reserved.
             </div>
           </div>

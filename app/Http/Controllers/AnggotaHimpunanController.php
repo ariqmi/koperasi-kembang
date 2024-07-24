@@ -30,7 +30,7 @@ class AnggotaHimpunanController extends Controller
 
   public function index(string $id) : View
   {
-    $usermembers = UserMember::where('himpunan_id', $id)->oldest()->paginate(10);
+    $usermembers = UserMember::where('himpunan_id', $id)->latest()->paginate(10);
     
     return view('fo.himpunansaya.anggotahimpunan.index', compact('usermembers'));
   }

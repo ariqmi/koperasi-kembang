@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Koperasi Kembang Syariah</title>
+    <title>Koperasi Syariah Kembang</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="keywords" />
     <meta content="" name="description" />
@@ -116,7 +116,7 @@
                   <div class="row justify-content-center">
                     <div class="col-lg-10 pt-5">
                       <h1 class="mb-3 animate__animated animate__slideInDown">
-                        Koperasi Kembang Syariah Hadir Sebagai Solusi Bagi Anda
+                        Koperasi Syariah Kembang Hadir Sebagai Solusi Bagi Anda
                       </h1>
                       <p class="mb-5 animate__animated animate__slideInDown">
                         Dengan menyediakan layanan simpan pinjam yang profesional dan modern demi kesejahteraan anggota dan masyarakat
@@ -133,7 +133,7 @@
                   <div class="row justify-content-center">
                     <div class="col-lg-10 pt-5">
                       <h1 class="mb-3 animate__animated animate__slideInDown">
-                        Koperasi Kembang Syariah Hadir Sebagai Solusi Bagi Anda
+                        Koperasi Syariah Kembang Hadir Sebagai Solusi Bagi Anda
                       </h1>
                       <p class="mb-5 animate__animated animate__slideInDown">
                         Untuk membangun jaringan kolaborasi dengan koperasi dan berbagai lembaga lainnya
@@ -150,7 +150,7 @@
                   <div class="row justify-content-center">
                     <div class="col-lg-10 pt-5">
                       <h1 class="mb-3 animate__animated animate__slideInDown">
-                        Koperasi Kembang Syariah Hadir Sebagai Solusi Bagi Anda
+                        Koperasi Syariah Kembang Hadir Sebagai Solusi Bagi Anda
                       </h1>
                       <p class="mb-5 animate__animated animate__slideInDown">
                         Untuk mengembangkan usaha-usaha sektor riil untuk kesejahteraan anggota, masyarakat, serta kemandirian koperasi
@@ -194,7 +194,7 @@
               <h1 class="section-title-lh-large mb-4 mt-4">
                 Koperasi
                 <span class="section-title-highlight d-block"
-                  >Kembang Syariah</span
+                  >Syariah Kembang</span
                 >
               </h1>
               <p class="section-content mb-4">
@@ -273,7 +273,7 @@
               <span class="chip-title">Layanan Kami</span>
               <h1 class="section-title-large mt-3">
                 Koperasi
-                <span class="section-title-highlight">Kembang Syariah</span>
+                <span class="section-title-highlight">Syariah Kembang</span>
                 Menyediakan Layanan
               </h1>
             </div>
@@ -366,7 +366,7 @@
               <h1 class="section-title-large mt-3">
                 Dokumentasi Kegiatan Koperasi
                 <span class="section-title-highlight d-block"
-                  >Kembang Syariah</span
+                  >Syariah Kembang</span
                 >
               </h1>
             </div>
@@ -468,7 +468,7 @@
               <span class="chip-title">Testimoni</span>
               <h1 class="section-title-large my-3">
                 Kata Mereka Yang Sudah Bergabung Dengan Koperasi
-                <span class="section-title-highlight">Kembang Syariah</span>
+                <span class="section-title-highlight">Syariah Kembang</span>
               </h1>
             </div>
             <div class="col-lg-7 col-md-6 animate__animated animate__fadeInUp">
@@ -548,7 +548,7 @@
             >
               <h1 class="section-title-large mb-4">
                 Mari Bergabung Dengan Koperasi
-                <span class="section-title-highlight">Kembang Syariah</span>
+                <span class="section-title-highlight">Syariah Kembang</span>
               </h1>
               <a class="button-primary" href="https://api.whatsapp.com/send/?phone=6282211814414&text&type=phone_number&app_absent=0" target="blank">
                 Gabung Sekarang
@@ -598,7 +598,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12 text-center mb-3 mb-md-0">
-              &copy; <a href="#">Koperasi Kembang Syariah</a>, All Right
+              &copy; <a href="#">Koperasi Syariah Kembang</a>, All Right
               Reserved.
             </div>
           </div>
