@@ -61,11 +61,19 @@
             >
             <input
               type="number"
-              class="form-control"
+              class="form-control @error('pencairan_pinjaman') is-invalid @enderror"
               id="pencairan_pinjaman"
               name="pencairan_pinjaman"
               value="{{ old('pencairan_pinjaman', $userdata->pencairan_pinjaman) }}"
             />
+
+            <!-- error message-->
+           @error('pencairan_pinjaman')
+           <div class="alert alert-danger mt-2">
+           {{ $message }}
+           </div>
+           @enderror
+
           </div>
 
           <div class="col-lg-6 mb-4">
@@ -76,11 +84,19 @@
             >
             <input
               type="number"
-              class="form-control"
+              class="form-control @error('takaful') is-invalid @enderror"
               id="takaful"
               name="takaful"
               value="{{ old('takaful', $userdata->takaful) }}"
             />
+
+            <!-- error message-->
+           @error('takaful')
+           <div class="alert alert-danger mt-2">
+           {{ $message }}
+           </div>
+           @enderror
+
           </div>
         </div>
 
@@ -93,11 +109,19 @@
             >
             <input
               type="number"
-              class="form-control"
+              class="form-control @error('angsuran') is-invalid @enderror"
               id="angsuran"
               name="angsuran"
               value="{{ old('angsuran', $userdata->angsuran) }}"
             />
+
+            <!-- error message-->
+           @error('angsuran')
+           <div class="alert alert-danger mt-2">
+           {{ $message }}
+           </div>
+           @enderror
+
           </div>
         </div>
 
@@ -110,11 +134,19 @@
             >
             <input
               type="number"
-              class="form-control"
+              class="form-control @error('simpanan_anggota_masuk') is-invalid @enderror"
               id="simpanan_anggota_masuk"
               name="simpanan_anggota_masuk"
               value="{{ old('simpanan_anggota_masuk', $userdata->simpanan_anggota_masuk) }}"
             />
+
+            <!-- error message-->
+           @error('simpanan_anggota_masuk')
+           <div class="alert alert-danger mt-2">
+           {{ $message }}
+           </div>
+           @enderror
+
           </div>
 
           <div class="col-lg-6 mb-4">
@@ -125,11 +157,19 @@
             >
             <input
               type="number"
-              class="form-control"
+              class="form-control @error('simpanan_anggota_keluar') is-invalid @enderror"
               id="simpanan_anggota_keluar"
               name="simpanan_anggota_keluar"
               value="{{ old('simpanan_anggota_keluar', $userdata->simpanan_anggota_keluar) }}"
             />
+
+            <!-- error message-->
+           @error('simpanan_anggota_keluar')
+           <div class="alert alert-danger mt-2">
+           {{ $message }}
+           </div>
+           @enderror
+
           </div>
         </div>
 
@@ -142,11 +182,19 @@
             >
             <input
               type="number"
-              class="form-control"
+              class="form-control @error('simpanan_kelompok_masuk') is-invalid @enderror"
               id="simpanan_kelompok_masuk"
               name="simpanan_kelompok_masuk"
               value="{{ old('simpanan_kelompok_masuk', $userdata->simpanan_kelompok_masuk) }}"
             />
+
+            <!-- error message-->
+           @error('simpanan_kelompok_masuk')
+           <div class="alert alert-danger mt-2">
+           {{ $message }}
+           </div>
+           @enderror
+
           </div>
 
           <div class="col-lg-6 mb-4">
@@ -157,11 +205,19 @@
             >
             <input
               type="number"
-              class="form-control"
+              class="form-control @error('simpanan_kelompok_keluar') is-invalid @enderror"
               id="simpanan_kelompok_keluar"
               name="simpanan_kelompok_keluar"
               value="{{ old('simpanan_kelompok_keluar', $userdata->simpanan_kelompok_keluar) }}"
             />
+
+            <!-- error message-->
+           @error('simpanan_kelompok_keluar')
+           <div class="alert alert-danger mt-2">
+           {{ $message }}
+           </div>
+           @enderror
+
           </div>
         </div>
 
@@ -174,11 +230,19 @@
             >
             <input
               type="number"
-              class="form-control"
+              class="form-control @error('simpanan_sukarela_masuk') is-invalid @enderror"
               id="simpanan_sukarela_masuk"
               name="simpanan_sukarela_masuk"
               value="{{ old('simpanan_sukarela_masuk', $userdata->simpanan_sukarela_masuk) }}"
             />
+
+            <!-- error message-->
+           @error('simpanan_sukarela_masuk')
+           <div class="alert alert-danger mt-2">
+           {{ $message }}
+           </div>
+           @enderror
+           
           </div>
 
           <div class="col-lg-6 mb-4">
@@ -189,11 +253,19 @@
             >
             <input
               type="number"
-              class="form-control"
+              class="form-control @error('simpanan_sukarela_keluar') is-invalid @enderror"
               id="simpanan_sukarela_keluar"
               name="simpanan_sukarela_keluar"
               value="{{ old('simpanan_sukarela_keluar', $userdata->simpanan_sukarela_keluar) }}"
             />
+
+            <!-- error message-->
+           @error('simpanan_sukarela_keluar')
+           <div class="alert alert-danger mt-2">
+           {{ $message }}
+           </div>
+           @enderror
+
           </div>
         </div>
 
@@ -206,11 +278,19 @@
             >
             <input
               type="number"
-              class="form-control"
+              class="form-control @error('infaq') is-invalid @enderror"
               id="infaq"
               name="infaq"
               value="{{ old('infaq', $userdata->infaq) }}"
             />
+
+            <!-- error message-->
+           @error('infaq')
+           <div class="alert alert-danger mt-2">
+           {{ $message }}
+           </div>
+           @enderror
+
           </div>
 
           <div class="col-lg-6 mb-4">
@@ -221,11 +301,19 @@
             >
             <input
               type="number"
-              class="form-control"
+              class="form-control @error('iuran_anggota') is-invalid @enderror"
               id="iuran_anggota"
               name="iuran_anggota"
               value="{{ old('iuran_anggota', $userdata->iuran_anggota) }}"
             />
+
+           <!-- error message-->
+           @error('iuran_anggota')
+           <div class="alert alert-danger mt-2">
+           {{ $message }}
+           </div>
+           @enderror
+
           </div>
         </div>
 
@@ -238,11 +326,19 @@
             >
             <input
               type="number"
-              class="form-control"
+              class="form-control @error('lainnya') is-invalid @enderror"
               id="lainnya"
               name="lainnya"
               value="{{ old('lainnya', $userdata->lainnya) }}"
             />
+
+             <!-- error message-->
+           @error('lainnya')
+           <div class="alert alert-danger mt-2">
+           {{ $message }}
+           </div>
+           @enderror
+           
           </div>
         </div>
       </form>

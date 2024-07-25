@@ -20,7 +20,6 @@ class KumpulanSayaController extends Controller
     $userId = Auth::id();
     $userMember = UserMember::where('user_id', $userId)->firstOrFail();
     $kumpulans = KumpulanAnggota::where('user_member_id', $userMember->id)->paginate(10);
-
     return view('member.kumpulansaya.index', compact('kumpulans'));
   }
 

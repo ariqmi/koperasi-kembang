@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 //import model
 use App\Models\Himpunan;
+use App\Models\KumpulanAnggota;
 use App\Models\User;
 use App\Models\UserFO;
 use App\Models\UserMember;
@@ -74,6 +75,13 @@ class MemberProfilController extends Controller
         ]);
 	
         $user = User::findOrFail($userId);
+
+        $jumlahkumpulan = 0;
+        $jumlahkumpulan = KumpulanAnggota::where('user_member_id', $usermember->id)->count();
+
+        if ($jumlahkumpulan != 0 AND $usermember->himpunan_id != $request->himpunan_id ) {
+            return redirect()->route('member.dashboard.index')->with(['error' => 'Himpunan Tidak Dapat Diganti!']);
+        }
 
         if($request->password != null) {
             $user = User::findOrFail($userId)->update([

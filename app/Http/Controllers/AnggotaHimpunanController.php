@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 //import model
 use App\Models\Himpunan;
+use App\Models\Kumpulan;
 use App\Models\KumpulanAnggota;
 use App\Models\User;
 use App\Models\UserFO;
@@ -217,11 +218,21 @@ class AnggotaHimpunanController extends Controller
   {
     $user = User::findOrFail($id);
     $usermember = UserMember::where('user_id', $id)->firstOrFail();
+    $jumlahkumpulan = KumpulanAnggota::where('user_member_id', $usermember->id)->count();
 
-    $user->delete();
-    $usermember->delete();
+    if ($jumlahkumpulan == 0) {
 
-    return redirect()->route('fo.anggotahimpunan.index', $usermember->user_id)->with(['success' => 'Data Berhasil Dihapus!']);
+        //delete user
+        
+        $user->delete();
+        $usermember->delete();
+        
+    } else {
+        return redirect()->route('fo.anggotahimpunan.index', $usermember->himpunan_id)->with(['error' => 'Member Tidak Dapat Dihapus!']);
+    }
+   
+
+    return redirect()->route('fo.anggotahimpunan.index', $usermember->himpunan_id)->with(['success' => 'Data Berhasil Dihapus!']);
   }
 
   public function dashboard($id) : View

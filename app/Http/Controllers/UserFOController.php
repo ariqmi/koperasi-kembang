@@ -37,7 +37,6 @@ class UserFOController extends Controller
         //get all user and user fo
         $userfos = UserFO::latest()->paginate(10);
 
-        // todo: masih blm muncul valuenya
         foreach ($userfos as $userfo) {
             $jumlahHimpunan = Himpunan::where('user_fo_id', $userfo->user_id)->count();
             $userfo->jumlah_himpunan = $jumlahHimpunan;
@@ -97,7 +96,6 @@ class UserFOController extends Controller
             'alamat' => $request->alamat,
             'sertifikasi' => $request->sertifikasi,
             'coverage_area' => $request->coverage_area,
-            // todo: setelah ada auth ganti value
         ]);
 
         //redirect to index
@@ -109,9 +107,13 @@ class UserFOController extends Controller
     $userfo = UserFO::where('user_id', $id)->firstOrFail();
     $user = User::where('id', $id)->firstOrFail();
 
-    $himpunan = Himpunan::where('user_fo_id', $id)->firstOrFail();
+    $himpunan = Himpunan::where('user_fo_id', $id)->first();
     $jumlahHimpunan = Himpunan::where('user_fo_id', $id)->count();
+    
+    $jumlahAnggota = 0;
+    if ($himpunan != null) {
     $jumlahAnggota= UserMember::where('himpunan_id', $himpunan->id)->count();
+    }
 
    
     return view('admin.fieldofficers.show', ['jumlahHimpunan' => $jumlahHimpunan, 'userfo' => $userfo, 'user' => $user, 'jumlahAnggota' => $jumlahAnggota]);
@@ -121,10 +123,13 @@ class UserFOController extends Controller
     {
     $userfo = UserFO::where('user_id', $id)->firstOrFail();
     $user = User::where('id', $id)->firstOrFail();
-
-    $himpunan = Himpunan::where('user_fo_id', $id)->firstOrFail();
+    $himpunan = Himpunan::where('user_fo_id', $id)->first();
     $jumlahHimpunan = Himpunan::where('user_fo_id', $id)->count();
+    
+    $jumlahAnggota = 0;
+    if ($himpunan != null) {
     $jumlahAnggota= UserMember::where('himpunan_id', $himpunan->id)->count();
+    }
 
     //redirect to index
     return view('admin.fieldofficers.edit', ['jumlahHimpunan' => $jumlahHimpunan, 'userfo' => $userfo, 'user' => $user, 'jumlahAnggota' => $jumlahAnggota]);
@@ -192,7 +197,6 @@ public function update(Request $request, $id): RedirectResponse
             'alamat' => $request->alamat,
             'sertifikasi' => $request->sertifikasi,
             'coverage_area' => $request->coverage_area,
-            // todo: setelah ada auth ganti value
         ]);
 
     } else {
@@ -221,7 +225,6 @@ public function update(Request $request, $id): RedirectResponse
             'alamat' => $request->alamat,
             'sertifikasi' => $request->sertifikasi,
             'coverage_area' => $request->coverage_area,
-            // todo: setelah ada auth ganti value
         ]);
     }
 
@@ -237,8 +240,18 @@ public function update(Request $request, $id): RedirectResponse
         $userfo = UserFO::where('user_id', $id)->firstOrFail();
         $user = User::where('id', $id)->firstOrFail();
 
-        $userfo->delete();
-        $user->delete();
+        $jumlahHimpunan = Himpunan::where('user_fo_id', $id)->count();
+
+        if ($jumlahHimpunan == 0) {
+
+            //delete user
+            
+            $userfo->delete();
+            $user->delete();
+        } else {
+            return redirect()->route('admin.fieldofficers.index')->with(['error' => 'FO Tidak Dapat Dihapus!']);
+        }
+       
         
     //redirect to index
     return redirect()->route('admin.fieldofficers.index')->with(['success' => 'Data Berhasil Dihapus!']);

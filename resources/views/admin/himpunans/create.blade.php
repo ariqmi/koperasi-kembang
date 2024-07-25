@@ -322,7 +322,7 @@
           >
           <option value="">Pilih Nama Field Officer</option>
           @foreach($userfos as $userfo)
-              <option value="{{ $userfo->id }}">{{ $userfo->nama }}</option>
+              <option value="{{ $userfo->user_id }}">{{ $userfo->nama }}</option>
           @endforeach
           </select>
 

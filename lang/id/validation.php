@@ -72,7 +72,7 @@ return [
     'image' => ':attribute harus berupa gambar.',
     'in' => 'The selected :attribute is invalid.',
     'in_array' => 'The :attribute field must exist in :other.',
-    'integer' => 'The :attribute field must be an integer.',
+    'integer' => ':attribute harus berupa angka.',
     'ip' => 'The :attribute field must be a valid IP address.',
     'ipv4' => 'The :attribute field must be a valid IPv4 address.',
     'ipv6' => 'The :attribute field must be a valid IPv6 address.',
@@ -104,7 +104,7 @@ return [
     'min' => [
         'array' => 'The :attribute field must have at least :min items.',
         'file' => 'The :attribute field must be at least :min kilobytes.',
-        'numeric' => 'The :attribute field must be at least :min.',
+        'numeric' => ':attribute harus diisi dengan angka minimal :min.',
         'string' => ':attribute setidaknya terdiri dari  :min karakter.',
     ],
     'min_digits' => 'The :attribute field must have at least :min digits.',

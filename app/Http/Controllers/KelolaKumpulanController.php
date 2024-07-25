@@ -21,7 +21,7 @@ class KelolaKumpulanController extends Controller
 {
   public function index($id) : View
   {
-    $kumpulans = Kumpulan::where('himpunan_id', $id)->latest()->paginate(10);
+    $kumpulans = Kumpulan::where('himpunan_id', $id)->oldest()->paginate(10);
 
     return view('fo.himpunansaya.kelolakumpulan.index', ['himpunan_id' => $id, 'kumpulans' => $kumpulans]);
   }
@@ -144,6 +144,21 @@ class KelolaKumpulanController extends Controller
 
   public function storeanggota(Request $request, $id): RedirectResponse
     {
+      $request->validate([
+        'pencairan_pinjaman' => 'integer|min:0',
+        'takaful' => 'integer|min:0',
+        'angsuran' => 'integer|min:0',
+        'simpanan_anggota_masuk' => 'integer|min:0',
+        'simpanan_anggota_keluar' => 'integer|min:0',
+        'simpanan_kelompok_masuk' => 'integer|min:0',
+        'simpanan_kelompok_keluar' => 'integer|min:0',
+        'simpanan_sukarela_masuk' => 'integer|min:0',
+        'simpanan_sukarela_keluar' => 'integer|min:0',
+        'infaq' => 'integer|min:0',
+        'iuran_anggota' => 'integer|min:0',
+        'lainnya' => 'integer|min:0',
+      ]);
+
       $datas = $request->session()->get('data', []);
 
       $himpunan_id = 0;
@@ -184,6 +199,21 @@ class KelolaKumpulanController extends Controller
 
   public function updateanggota(Request $request, $id): RedirectResponse
   {
+    $request->validate([
+      'pencairan_pinjaman' => 'integer|min:0',
+      'takaful' => 'integer|min:0',
+      'angsuran' => 'integer|min:0',
+      'simpanan_anggota_masuk' => 'integer|min:0',
+      'simpanan_anggota_keluar' => 'integer|min:0',
+      'simpanan_kelompok_masuk' => 'integer|min:0',
+      'simpanan_kelompok_keluar' => 'integer|min:0',
+      'simpanan_sukarela_masuk' => 'integer|min:0',
+      'simpanan_sukarela_keluar' => 'integer|min:0',
+      'infaq' => 'integer|min:0',
+      'iuran_anggota' => 'integer|min:0',
+      'lainnya' => 'integer|min:0',
+]);
+
     $kumpulananggota = KumpulanAnggota::findOrFail($id);
 
       KumpulanAnggota::findOrFail($id)->update([
